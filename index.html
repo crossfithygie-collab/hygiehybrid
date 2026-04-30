@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HYGIE HYBRID — 14.06.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@300;400;500;700&family=Fraunces:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0a;
+    --bg-2:#0f0f0f;
+    --cream:#f3ecd8;
+    --cream-dim:#8a8576;
+    --cream-faint:#3a3730;
+    --line:#1f1f1f;
+    --accent:#f3ecd8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--cream);font-family:'JetBrains Mono',monospace;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--cream);color:var(--bg)}
+
+  /* Heavy grain layer over everything — matches flyer */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.22;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:20px 28px;
+    background:rgba(10,10,10,.7);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(243,236,216,.05);
+  }
+  .nav-logo{font-family:'Anton',sans-serif;font-size:20px;letter-spacing:.04em;color:var(--cream);text-transform:lowercase}
+  .nav-logo span{color:var(--cream-dim)}
+  .nav-links{display:none;gap:32px;font-size:11px;letter-spacing:.25em;text-transform:uppercase}
+  .nav-links a{color:var(--cream-dim);text-decoration:none;transition:color .3s}
+  .nav-links a:hover{color:var(--cream)}
+  .nav-cta{
+    padding:10px 22px;border:1px solid var(--cream);color:var(--cream);
+    font-size:10px;letter-spacing:.3em;text-transform:uppercase;text-decoration:none;
+    transition:all .3s;
+  }
+  .nav-cta:hover{background:var(--cream);color:var(--bg)}
+  @media(min-width:900px){.nav-links{display:flex}}
+
+  /* Big countdown — hero-sized, scrolls with content under the fixed nav */
+  .countdown{
+    padding:120px 28px 60px;
+    border-bottom:1px solid var(--line);
+    position:relative;overflow:hidden;
+    background:var(--bg);
+  }
+  .countdown::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 50% 60% at 50% 50%, rgba(243,236,216,.08) 0%, transparent 60%);
+    pointer-events:none;
+  }
+  .countdown-inner{position:relative;z-index:2;max-width:1300px;margin:0 auto}
+  .countdown-label{
+    display:flex;align-items:center;gap:14px;
+    font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--cream-dim);
+    margin-bottom:30px;
+  }
+  .countdown-label::before{
+    content:"";width:6px;height:6px;border-radius:50%;background:var(--cream);
+    animation:pulse 1.6s ease-in-out infinite;
+  }
+  .countdown-blocks{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+    align-items:end;
+  }
+  .cd-block{
+    display:flex;flex-direction:column;align-items:flex-start;gap:14px;
+    padding:0;
+  }
+  .cd-num{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(60px,14vw,180px);
+    line-height:.85;letter-spacing:-.03em;
+    color:var(--cream);
+    font-variant-numeric:tabular-nums;
+    width:100%;
+  }
+  .cd-unit{
+    font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.3em;text-transform:uppercase;color:var(--cream-dim);
+    border-top:1px solid var(--line);padding-top:14px;width:100%;
+  }
+  @media(min-width:768px){
+    .countdown{padding:140px 60px 80px}
+    .countdown-blocks{gap:24px}
+    .cd-unit{font-size:11px}
+  }
+
+  .hero{
+    position:relative;height:100vh;min-height:680px;
+    overflow:hidden;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    background:var(--bg);
+  }
+  /* Spray cloud — replicates the flyer's diffuse light burst */
+  .hero-bg{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 60% 50% at 35% 35%, rgba(243,236,216,.32) 0%, rgba(243,236,216,.12) 25%, transparent 55%),
+      radial-gradient(ellipse 80% 70% at 35% 40%, rgba(243,236,216,.08) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 35% at 75% 75%, rgba(243,236,216,.06) 0%, transparent 55%),
+      #0a0a0a;
+  }
+  /* Heavy spray-grain on top of the cloud — like the flyer */
+  .hero-bg::before{
+    content:"";position:absolute;inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='spray'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='2' stitchTiles='stitch' seed='5'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23spray)'/%3E%3C/svg%3E");
+    mix-blend-mode:overlay;opacity:.45;
+  }
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='4' seed='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.92 0 0 0 0 0.85 0 0 0 0.8 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    mix-blend-mode:soft-light;opacity:.7;
+  }
+
+  .hero-content{
+    position:relative;z-index:2;
+    padding:0 28px 60px;
+    width:100%;
+  }
+  .hero-tag{
+    font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--cream-dim);
+    display:flex;align-items:center;gap:14px;margin-bottom:20px;
+    animation:fadeUp .8s ease both;
+  }
+  .hero-tag::before{content:"";width:30px;height:1px;background:var(--accent)}
+  .hero-tag .live{color:var(--accent);font-weight:700}
+
+  .hero-title{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(80px,18vw,260px);
+    line-height:.82;letter-spacing:-.04em;
+    text-transform:lowercase;
+    color:var(--cream);
+    animation:fadeUp 1s ease .15s both;
+  }
+  .hero-title .line{display:block}
+  .hero-title em{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:300;
+    color:var(--accent);
+  }
+  .hero-title .stroke{
+    -webkit-text-stroke:2px var(--cream);
+    color:transparent;
+  }
+
+  .hero-bottom{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    margin-top:30px;flex-wrap:wrap;gap:20px;
+    padding-top:24px;
+    border-top:1px solid rgba(243,236,216,.15);
+    animation:fadeUp 1.1s ease .3s both;
+  }
+  .hero-info{display:flex;gap:40px;flex-wrap:wrap}
+  .info-block .label{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:6px}
+  .info-block .value{font-family:'Anton',sans-serif;font-size:22px;letter-spacing:.02em;color:var(--cream)}
+  .hero-scroll{
+    font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-dim);
+    display:flex;align-items:center;gap:10px;
+  }
+  .hero-scroll::after{
+    content:"";width:30px;height:1px;background:var(--cream-dim);
+    animation:scrollLine 2s ease-in-out infinite;
+  }
+  @keyframes scrollLine{0%,100%{transform:scaleX(.3);transform-origin:left}50%{transform:scaleX(1);transform-origin:left}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+
+  .marquee{
+    overflow:hidden;
+    background:var(--cream);color:var(--bg);
+    border-top:1px solid var(--cream);border-bottom:1px solid var(--cream);
+  }
+  .marquee-track{
+    display:flex;gap:50px;
+    padding:14px 0;
+    animation:scroll 30s linear infinite;
+    white-space:nowrap;
+    font-family:'Anton',sans-serif;font-size:24px;letter-spacing:.06em;text-transform:uppercase;
+  }
+  .marquee-track span{display:flex;align-items:center;gap:50px}
+  .marquee-track span::after{content:"/";opacity:.5}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  .split{
+    display:grid;grid-template-columns:1fr;
+    min-height:90vh;border-bottom:1px solid var(--line);
+  }
+  .split-visual{
+    position:relative;min-height:50vh;overflow:hidden;
+    background:
+      radial-gradient(ellipse at 50% 50%, rgba(243,236,216,.12) 0%, transparent 60%),
+      var(--bg-2);
+    border-right:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .split-visual::before{
+    content:"";position:absolute;inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.92 0 0 0 0 0.85 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g2)'/%3E%3C/svg%3E");
+    mix-blend-mode:soft-light;opacity:.6;
+  }
+  .split-mark{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(120px,20vw,300px);
+    line-height:.8;letter-spacing:-.04em;
+    -webkit-text-stroke:2px var(--cream);
+    color:transparent;
+    text-transform:lowercase;
+    position:relative;z-index:2;
+    transform:rotate(-4deg);
+  }
+  .split-content{
+    padding:80px 28px;display:flex;flex-direction:column;justify-content:center;
+  }
+  .split-num{font-size:11px;letter-spacing:.35em;color:var(--cream-dim);margin-bottom:20px;text-transform:uppercase}
+  .split-title{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(48px,8vw,110px);
+    line-height:.9;letter-spacing:-.02em;
+    text-transform:lowercase;margin-bottom:30px;
+  }
+  .split-title em{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--cream-dim)}
+  .split-text{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:clamp(18px,2vw,22px);line-height:1.5;
+    color:var(--cream);max-width:520px;margin-bottom:40px;
+  }
+  .split-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:20px}
+  .stat{padding:24px 18px;background:var(--bg)}
+  .stat-num{font-family:'Anton',sans-serif;font-size:36px;color:var(--accent);line-height:1}
+  .stat-label{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--cream-dim);margin-top:8px}
+
+  @media(min-width:900px){
+    .split{grid-template-columns:1fr 1fr}
+    .split-content{padding:80px 60px}
+  }
+
+  .parcours{background:var(--bg)}
+  .parcours-header{padding:120px 28px 60px;border-bottom:1px solid var(--line)}
+  .section-num{font-size:11px;letter-spacing:.35em;color:var(--cream-dim);margin-bottom:20px;text-transform:uppercase}
+  .section-title{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(60px,12vw,180px);
+    line-height:.85;letter-spacing:-.03em;text-transform:lowercase;
+  }
+  .section-title em{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--accent)}
+  .section-sub{font-family:'Fraunces',serif;font-weight:300;font-size:22px;color:var(--cream-dim);max-width:600px;margin-top:30px;line-height:1.5}
+
+  .zone-band{
+    display:grid;grid-template-columns:1fr;
+    border-bottom:1px solid var(--line);
+    transition:background .5s ease;
+  }
+  .zone-band:hover{background:var(--bg-2)}
+  .zone-band:hover .zone-mega{transform:translateX(20px);color:var(--accent)}
+  .zone-band:hover .zone-arrow{transform:translateX(0);opacity:1}
+  .zone-band-inner{
+    display:grid;grid-template-columns:60px 1fr;align-items:center;
+    padding:40px 28px;gap:24px;
+  }
+  .zone-num-big{
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;
+    color:var(--cream-dim);
+  }
+  .zone-mega{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(40px,8vw,90px);
+    line-height:.9;letter-spacing:-.02em;text-transform:lowercase;
+    color:var(--cream);
+    transition:all .5s cubic-bezier(.2,.7,.2,1);
+  }
+  .zone-meta{
+    display:flex;gap:30px;align-items:center;flex-wrap:wrap;
+    margin-top:14px;
+  }
+  .zone-time{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--cream-dim)}
+  .zone-desc{font-family:'Fraunces',serif;font-weight:300;font-size:16px;color:var(--cream-dim);max-width:500px;line-height:1.4}
+  .zone-arrow{
+    font-family:'Anton',sans-serif;font-size:40px;
+    color:var(--accent);
+    transform:translateX(-30px);opacity:0;
+    transition:all .5s cubic-bezier(.2,.7,.2,1);
+  }
+  @media(min-width:900px){
+    .zone-band-inner{grid-template-columns:80px 1fr auto;padding:60px 60px}
+  }
+
+  .metcon{
+    padding:140px 28px;background:var(--bg-2);
+    border-bottom:1px solid var(--line);position:relative;overflow:hidden;
+  }
+  .metcon::before{
+    content:"METCON · METCON · METCON ·";
+    position:absolute;bottom:-30px;left:0;right:0;
+    font-family:'Anton',sans-serif;font-size:200px;letter-spacing:-.02em;
+    color:rgba(243,236,216,.03);white-space:nowrap;line-height:1;
+    pointer-events:none;
+  }
+  .metcon-inner{position:relative;max-width:1300px;margin:0 auto}
+  .metcon-top{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:30px;margin-bottom:60px}
+  .metcon-cap{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:8px 16px;background:var(--accent);color:var(--bg);
+    font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
+    letter-spacing:.25em;text-transform:uppercase;
+  }
+  .metcon-cap::before{content:"";width:8px;height:8px;background:var(--bg);border-radius:50%;animation:pulse 1.4s infinite}
+  @keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+
+  .metcon-grid{
+    display:grid;grid-template-columns:1fr;
+    border-top:2px solid var(--cream);
+    border-bottom:2px solid var(--cream);
+  }
+  .metcon-row{
+    display:grid;grid-template-columns:90px 1fr auto;
+    align-items:center;padding:24px 0;
+    border-bottom:1px solid var(--line);
+    transition:all .3s;
+  }
+  .metcon-row:last-child{border-bottom:none}
+  .metcon-row:hover{padding-left:20px;background:rgba(243,236,216,.04)}
+  .metcon-cal{font-family:'Anton',sans-serif;font-size:48px;color:var(--accent);line-height:1}
+  .metcon-mvt{font-family:'Anton',sans-serif;font-size:clamp(20px,3vw,32px);text-transform:uppercase;letter-spacing:.02em}
+  .metcon-tag{font-size:10px;letter-spacing:.3em;color:var(--cream-dim);text-transform:uppercase}
+
+  .cats{padding:140px 28px;background:var(--bg);border-bottom:1px solid var(--line)}
+  .cats-inner{max-width:1300px;margin:0 auto}
+  .cats-grid{
+    display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);
+    margin-top:60px;border:1px solid var(--line);
+  }
+  .cat{
+    background:var(--bg);padding:50px 36px;
+    transition:all .4s;position:relative;overflow:hidden;
+  }
+  .cat::before{
+    content:"";position:absolute;top:0;left:0;width:100%;height:3px;
+    background:var(--accent);transform:scaleX(0);transform-origin:left;
+    transition:transform .5s cubic-bezier(.7,0,.3,1);
+  }
+  .cat:hover::before{transform:scaleX(1)}
+  .cat:hover{background:var(--bg-2)}
+  .cat-tier{font-size:10px;letter-spacing:.3em;color:var(--cream-dim);margin-bottom:14px;text-transform:uppercase;font-weight:700}
+  .cat-name{font-family:'Anton',sans-serif;font-size:42px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:30px}
+  .cat-list{list-style:none;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:2.2}
+  .cat-list li{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:8px 0;color:var(--cream-dim)}
+  .cat-list strong{color:var(--cream);font-weight:500}
+  @media(min-width:700px){.cats-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1100px){.cats-grid{grid-template-columns:repeat(4,1fr)}}
+
+  .cta{
+    padding:160px 28px;text-align:left;position:relative;overflow:hidden;
+    background:var(--bg);border-bottom:1px solid var(--line);
+  }
+  .cta-bg-text{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    font-family:'Anton',sans-serif;
+    font-size:clamp(120px,28vw,420px);
+    line-height:.85;letter-spacing:-.05em;
+    color:transparent;-webkit-text-stroke:1px rgba(243,236,216,.06);
+    white-space:nowrap;pointer-events:none;
+  }
+  .cta-inner{position:relative;z-index:2;max-width:1300px;margin:0 auto}
+  .cta-tag{font-size:11px;letter-spacing:.35em;color:var(--cream-dim);margin-bottom:30px;text-transform:uppercase}
+  .cta-headline{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(60px,12vw,180px);
+    line-height:.85;letter-spacing:-.03em;text-transform:lowercase;margin-bottom:50px;
+  }
+  .cta-headline em{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--accent)}
+
+  .cta-bottom{
+    display:grid;grid-template-columns:1fr;gap:40px;
+    border-top:1px solid var(--line);padding-top:50px;
+  }
+  .cta-price{display:flex;align-items:baseline;gap:14px}
+  .cta-price-num{font-family:'Anton',sans-serif;font-size:120px;line-height:.85;color:var(--cream)}
+  .cta-price-info{display:flex;flex-direction:column;gap:6px}
+  .cta-price-info span:first-child{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  .cta-price-info span:last-child{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--cream-dim)}
+
+  .btn-mega{
+    display:inline-flex;align-items:center;justify-content:space-between;gap:30px;
+    padding:30px 40px;
+    background:var(--cream);color:var(--bg);
+    font-family:'Anton',sans-serif;font-size:28px;letter-spacing:.02em;text-transform:uppercase;
+    text-decoration:none;
+    border:none;cursor:pointer;
+    transition:all .4s cubic-bezier(.2,.7,.2,1);
+    width:100%;
+  }
+  .btn-mega:hover{background:var(--bg);color:var(--cream);transform:translateY(-4px);outline:1px solid var(--cream);outline-offset:-1px}
+  .btn-mega .arrow{font-size:24px;transition:transform .4s}
+  .btn-mega:hover .arrow{transform:translateX(8px)}
+
+  @media(min-width:900px){
+    .cta-bottom{grid-template-columns:1fr 1fr;align-items:center}
+  }
+
+  footer{
+    padding:60px 28px 30px;
+    display:grid;grid-template-columns:1fr;gap:40px;
+    border-top:1px solid var(--line);background:var(--bg-2);
+  }
+  .foot-logo{font-family:'Anton',sans-serif;font-size:48px;text-transform:lowercase;letter-spacing:-.02em}
+  .foot-logo span{color:var(--cream-dim)}
+  .foot-meta{display:flex;flex-direction:column;gap:14px;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--cream-dim)}
+  .foot-meta a{color:var(--cream);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .3s}
+  .foot-meta a:hover{border-color:var(--accent)}
+  .foot-bottom{
+    grid-column:1/-1;border-top:1px solid var(--line);padding-top:24px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;
+    font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--cream-dim);
+  }
+  @media(min-width:768px){
+    footer{grid-template-columns:2fr 1fr 1fr;padding:80px 60px 30px}
+    .nav{padding:24px 40px}
+    .hero-content{padding:0 60px 80px}
+    .parcours-header{padding:140px 60px 80px}
+    .metcon{padding:160px 60px}
+    .cats{padding:160px 60px}
+    .cta{padding:180px 60px}
+  }
+
+  .reveal{opacity:0;transform:translateY(40px);transition:all 1s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">[ hygie<span>/</span>hybrid ]</div>
+  <div class="nav-links">
+    <a href="#concept">Le concept</a>
+    <a href="#parcours">Parcours</a>
+    <a href="#metcon">Metcon</a>
+    <a href="#cats">Catégories</a>
+  </div>
+  <a href="https://scoring.fit/3100" target="_blank" rel="noopener" class="nav-cta">S'inscrire</a>
+</nav>
+
+<!-- COUNTDOWN -->
+<section class="countdown">
+  <div class="countdown-inner">
+    <div class="countdown-label">J — 14.06.2026 · le décompte est lancé</div>
+    <div class="countdown-blocks">
+      <div class="cd-block">
+        <div class="cd-num" id="cd-days">--</div>
+        <div class="cd-unit">jours</div>
+      </div>
+      <div class="cd-block">
+        <div class="cd-num" id="cd-hours">--</div>
+        <div class="cd-unit">heures</div>
+      </div>
+      <div class="cd-block">
+        <div class="cd-num" id="cd-mins">--</div>
+        <div class="cd-unit">minutes</div>
+      </div>
+      <div class="cd-block">
+        <div class="cd-num" id="cd-secs">--</div>
+        <div class="cd-unit">secondes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag"><span class="live">●</span> ÉDITION 01 · 14 JUIN 2026</div>
+
+    <h1 class="hero-title">
+      <span class="line">hygie</span>
+      <span class="line stroke">hybrid<em>.</em></span>
+    </h1>
+
+    <div class="hero-bottom">
+      <div class="hero-info">
+        <div class="info-block">
+          <div class="label">Date</div>
+          <div class="value">14.06.2026</div>
+        </div>
+        <div class="info-block">
+          <div class="label">Format</div>
+          <div class="value">Hybride · 2H30</div>
+        </div>
+        <div class="info-block">
+          <div class="label">Catégories</div>
+          <div class="value">04</div>
+        </div>
+        <div class="info-block">
+          <div class="label">Prix</div>
+          <div class="value">100€ / team</div>
+        </div>
+      </div>
+      <div class="hero-scroll">scroll</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>STRENGTH</span><span>ENDURANCE</span><span>METCON</span><span>HYBRID</span><span>14.06.2026</span><span>NO LIMITS</span>
+    <span>STRENGTH</span><span>ENDURANCE</span><span>METCON</span><span>HYBRID</span><span>14.06.2026</span><span>NO LIMITS</span>
+  </div>
+</div>
+
+<section class="split" id="concept">
+  <div class="split-visual">
+    <div class="split-mark">hybrid</div>
+  </div>
+  <div class="split-content">
+    <div class="split-num reveal">/ 01 — LE CONCEPT</div>
+    <h2 class="split-title reveal">tester <em>l'athlète</em><br/>complet.</h2>
+    <p class="split-text reveal">
+      2h30. 6 zones. Une seule philosophie : aller au bout. De la force pure à l'endurance, en passant par le metabolic conditioning et la récupération active — Hygie Hybrid est conçu pour ceux qui refusent de choisir.
+    </p>
+    <div class="split-stats reveal">
+      <div class="stat"><div class="stat-num">06</div><div class="stat-label">Zones</div></div>
+      <div class="stat"><div class="stat-num">150'</div><div class="stat-label">Total</div></div>
+      <div class="stat"><div class="stat-num">04</div><div class="stat-label">Catégories</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="parcours" id="parcours">
+  <div class="parcours-header">
+    <div class="section-num reveal">/ 02 — LE PARCOURS</div>
+    <h2 class="section-title reveal">six zones.<br/><em>une seule</em> mission.</h2>
+    <p class="section-sub reveal">Chaque zone est une étape. Chaque étape compte. Du warm-up au metcon final — donne tout, du début à la fin.</p>
+  </div>
+
+  <div class="zone-band reveal">
+    <div class="zone-band-inner">
+      <div class="zone-num-big">01</div>
+      <div>
+        <div class="zone-mega">warm-up</div>
+        <div class="zone-meta">
+          <span class="zone-time">0' — 30'</span>
+          <span class="zone-desc">Échauffement libre. Élastiques, rouleaux, barres, ergos.</span>
+        </div>
+      </div>
+      <div class="zone-arrow">→</div>
+    </div>
+  </div>
+
+  <div class="zone-band reveal">
+    <div class="zone-band-inner">
+      <div class="zone-num-big">02</div>
+      <div>
+        <div class="zone-mega">strength</div>
+        <div class="zone-meta">
+          <span class="zone-time">30' — 50'</span>
+          <span class="zone-desc">10 min · 1RM Bench Press / 10 min · 3RM Back Squat.</span>
+        </div>
+      </div>
+      <div class="zone-arrow">→</div>
+    </div>
+  </div>
+
+  <div class="zone-band reveal">
+    <div class="zone-band-inner">
+      <div class="zone-num-big">03</div>
+      <div>
+        <div class="zone-mega">refuel</div>
+        <div class="zone-meta">
+          <span class="zone-time">50' — 60'</span>
+          <span class="zone-desc">Stand hydratation Smartfuel. Préparation au bloc endurance.</span>
+        </div>
+      </div>
+      <div class="zone-arrow">→</div>
+    </div>
+  </div>
+
+  <div class="zone-band reveal">
+    <div class="zone-band-inner">
+      <div class="zone-num-big">04</div>
+      <div>
+        <div class="zone-mega">endurance</div>
+        <div class="zone-meta">
+          <span class="zone-time">60' — 90'</span>
+          <span class="zone-desc">AMRAP 20 min · Run &amp; Bike. Switch toutes les 500 m.</span>
+        </div>
+      </div>
+      <div class="zone-arrow">→</div>
+    </div>
+  </div>
+
+  <div class="zone-band reveal">
+    <div class="zone-band-inner">
+      <div class="zone-num-big">05</div>
+      <div>
+        <div class="zone-mega">recovery</div>
+        <div class="zone-meta">
+          <span class="zone-time">90' — 120'</span>
+          <span class="zone-desc">Récupération active. Rouleaux, étirements, mobilité.</span>
+        </div>
+      </div>
+      <div class="zone-arrow">→</div>
+    </div>
+  </div>
+
+  <div class="zone-band reveal">
+    <div class="zone-band-inner">
+      <div class="zone-num-big">06</div>
+      <div>
+        <div class="zone-mega">metcon</div>
+        <div class="zone-meta">
+          <span class="zone-time">120' — 150'</span>
+          <span class="zone-desc">Le bouquet final. Time cap 25 min. Tout donner, tout finir.</span>
+        </div>
+      </div>
+      <div class="zone-arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<section class="metcon" id="metcon">
+  <div class="metcon-inner">
+    <div class="metcon-top">
+      <div>
+        <div class="section-num reveal">/ 03 — METCON FINALE</div>
+        <h2 class="section-title reveal">le <em>boss</em><br/>fight.</h2>
+      </div>
+      <div class="metcon-cap reveal">TIME CAP · 25 MIN</div>
+    </div>
+
+    <div class="metcon-grid">
+      <div class="metcon-row reveal"><div class="metcon-cal">60</div><div class="metcon-mvt">Cal Ski Erg</div><div class="metcon-tag">01</div></div>
+      <div class="metcon-row reveal"><div class="metcon-cal">50</div><div class="metcon-mvt">Burpees Box Jump Over</div><div class="metcon-tag">02</div></div>
+      <div class="metcon-row reveal"><div class="metcon-cal">50</div><div class="metcon-mvt">Cal Ski Erg</div><div class="metcon-tag">03</div></div>
+      <div class="metcon-row reveal"><div class="metcon-cal">50</div><div class="metcon-mvt">DB Hang Snatches Alt</div><div class="metcon-tag">04</div></div>
+      <div class="metcon-row reveal"><div class="metcon-cal">40</div><div class="metcon-mvt">Cal Ski Erg</div><div class="metcon-tag">05</div></div>
+      <div class="metcon-row reveal"><div class="metcon-cal">50</div><div class="metcon-mvt">Wall Ball Shots</div><div class="metcon-tag">06</div></div>
+      <div class="metcon-row reveal"><div class="metcon-cal">30</div><div class="metcon-mvt">Cal Ski Erg</div><div class="metcon-tag">07</div></div>
+      <div class="metcon-row reveal"><div class="metcon-cal">50</div><div class="metcon-mvt">DB Hang Clean &amp; Jerk Alt</div><div class="metcon-tag">08</div></div>
+      <div class="metcon-row reveal"><div class="metcon-cal">20</div><div class="metcon-mvt">Cal Ski Erg</div><div class="metcon-tag">09</div></div>
+      <div class="metcon-row reveal"><div class="metcon-cal">50</div><div class="metcon-mvt">Box Jump Over</div><div class="metcon-tag">10</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cats" id="cats">
+  <div class="cats-inner">
+    <div class="section-num reveal">/ 04 — CATÉGORIES</div>
+    <h2 class="section-title reveal">choisis ta <em>catégorie</em>.</h2>
+
+    <div class="cats-grid">
+      <div class="cat reveal">
+        <div class="cat-tier">Catégorie 01</div>
+        <div class="cat-name">FF Lite</div>
+        <ul class="cat-list">
+          <li>Box <strong>20"</strong></li>
+          <li>DB <strong>10 kg</strong></li>
+          <li>Wall Ball <strong>4 kg</strong></li>
+          <li>Mvt <strong>Step Over</strong></li>
+        </ul>
+      </div>
+      <div class="cat reveal">
+        <div class="cat-tier">Catégorie 02</div>
+        <div class="cat-name">HF/HH Lite</div>
+        <ul class="cat-list">
+          <li>Box <strong>20"</strong></li>
+          <li>DB <strong>15 kg</strong></li>
+          <li>Wall Ball <strong>6 kg</strong></li>
+          <li>Mvt <strong>Step Over</strong></li>
+        </ul>
+      </div>
+      <div class="cat reveal">
+        <div class="cat-tier">Catégorie 03</div>
+        <div class="cat-name">FF Pro</div>
+        <ul class="cat-list">
+          <li>Box <strong>20"</strong></li>
+          <li>DB <strong>15 kg</strong></li>
+          <li>Wall Ball <strong>6 kg</strong></li>
+          <li>Mvt <strong>Jump Over</strong></li>
+        </ul>
+      </div>
+      <div class="cat reveal">
+        <div class="cat-tier">Catégorie 04</div>
+        <div class="cat-name">HH Pro</div>
+        <ul class="cat-list">
+          <li>Box <strong>24"</strong></li>
+          <li>DB <strong>20 kg</strong></li>
+          <li>Wall Ball <strong>9 kg</strong></li>
+          <li>Mvt <strong>Jump Over</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-bg-text">14.06.26</div>
+  <div class="cta-inner">
+    <div class="cta-tag reveal">/ 05 — INSCRIPTIONS OUVERTES</div>
+    <h2 class="cta-headline reveal">prêt à <em>tout</em><br/>donner ?</h2>
+
+    <div class="cta-bottom">
+      <div class="cta-price reveal">
+        <div class="cta-price-num">100€</div>
+        <div class="cta-price-info">
+          <span>par team</span>
+          <span>2 athlètes</span>
+        </div>
+      </div>
+      <a href="https://scoring.fit/3100" target="_blank" rel="noopener" class="btn-mega reveal">
+        Inscris ta team
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">[ hygie<span>/</span>hybrid ]</div>
+  <div class="foot-meta">
+    <div style="color:var(--cream-dim);margin-bottom:6px">SUIVRE</div>
+    <a href="https://www.instagram.com/hygie_hybrid/" target="_blank" rel="noopener">@hygie_hybrid</a>
+    <a href="https://www.instagram.com/hygie_hybrid/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+  <div class="foot-meta">
+    <div style="color:var(--cream-dim);margin-bottom:6px">CONTACT</div>
+    <a href="mailto:crossfit.hygie@gmail.com">crossfit.hygie@gmail.com</a>
+    <a href="https://scoring.fit/3100" target="_blank" rel="noopener">scoring.fit/3100</a>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2026 · HYGIE HYBRID · ÉDITION 01</div>
+    <div>14.06.2026</div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+    });
+  },{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Countdown to 14 June 2026, 09:00 local time
+  (function(){
+    const target = new Date('2026-06-14T09:00:00').getTime();
+    const dEl = document.getElementById('cd-days');
+    const hEl = document.getElementById('cd-hours');
+    const mEl = document.getElementById('cd-mins');
+    const sEl = document.getElementById('cd-secs');
+    const pad = n => String(n).padStart(2,'0');
+
+    function tick(){
+      const now = Date.now();
+      const diff = target - now;
+      if(diff <= 0){
+        dEl.textContent = '00';
+        hEl.textContent = '00';
+        mEl.textContent = '00';
+        sEl.textContent = '00';
+        return;
+      }
+      const days = Math.floor(diff / (1000*60*60*24));
+      const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+      const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+      const secs = Math.floor((diff % (1000*60)) / 1000);
+      dEl.textContent = pad(days);
+      hEl.textContent = pad(hours);
+      mEl.textContent = pad(mins);
+      sEl.textContent = pad(secs);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
+
+</body>
+</html>
