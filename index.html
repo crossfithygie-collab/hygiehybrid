@@ -21,7 +21,6 @@
   html,body{background:var(--bg);color:var(--cream);font-family:'JetBrains Mono',monospace;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   ::selection{background:var(--cream);color:var(--bg)}
 
-  /* Heavy grain layer over everything — matches flyer */
   body::before{
     content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.22;mix-blend-mode:overlay;
     background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -48,7 +47,6 @@
   .nav-cta:hover{background:var(--cream);color:var(--bg)}
   @media(min-width:900px){.nav-links{display:flex}}
 
-  /* Big countdown — hero-sized, scrolls with content under the fixed nav */
   .countdown{
     padding:120px 28px 60px;
     border-bottom:1px solid var(--line);
@@ -106,7 +104,6 @@
     display:flex;flex-direction:column;justify-content:flex-end;
     background:var(--bg);
   }
-  /* Spray cloud — replicates the flyer's diffuse light burst */
   .hero-bg{
     position:absolute;inset:0;
     background:
@@ -115,7 +112,6 @@
       radial-gradient(ellipse 40% 35% at 75% 75%, rgba(243,236,216,.06) 0%, transparent 55%),
       #0a0a0a;
   }
-  /* Heavy spray-grain on top of the cloud — like the flyer */
   .hero-bg::before{
     content:"";position:absolute;inset:0;
     background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='spray'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='2' stitchTiles='stitch' seed='5'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23spray)'/%3E%3C/svg%3E");
@@ -439,7 +435,27 @@
   .reveal{opacity:0;transform:translateY(40px);transition:all 1s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:translateY(0)}
 </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '24722413320789353');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 </head>
+  
 <body>
 
 <nav class="nav">
@@ -453,7 +469,6 @@
   <a href="https://scoring.fit/3100" target="_blank" rel="noopener" class="nav-cta">S'inscrire</a>
 </nav>
 
-<!-- COUNTDOWN -->
 <section class="countdown">
   <div class="countdown-inner">
     <div class="countdown-label">J — 14.06.2026 · le décompte est lancé</div>
@@ -746,7 +761,6 @@
 </footer>
 
 <script>
-  // Reveal on scroll
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
       if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
@@ -754,7 +768,6 @@
   },{threshold:.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // Countdown to 14 June 2026, 09:00 local time
   (function(){
     const target = new Date('2026-06-14T09:00:00').getTime();
     const dEl = document.getElementById('cd-days');
@@ -785,6 +798,14 @@
     tick();
     setInterval(tick, 1000);
   })();
+
+  document.querySelectorAll('a[href*="scoring.fit"]').forEach(link => {
+    link.addEventListener('click', () => {
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {content_name: 'Inscription Hygie Hybrid'});
+      }
+    });
+  });
 </script>
 
 </body>
