@@ -445,6 +445,82 @@
     .cta{padding:180px 60px}
   }
 
+
+  /* ══════════════════════════════════════════
+     MOBILE — tableaux scrollables + ajustements
+  ══════════════════════════════════════════ */
+
+  /* Wrapper scrollable pour tous les tableaux de la section briefing */
+  .bt-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    /* petit indicateur visuel sur mobile */
+  }
+  .bt-scroll::-webkit-scrollbar { height: 3px; }
+  .bt-scroll::-webkit-scrollbar-track { background: var(--line); }
+  .bt-scroll::-webkit-scrollbar-thumb { background: var(--cream-faint); }
+
+  /* Les bt-wrap dans un scroll conservent leur min-width */
+  .bt-scroll .bt-wrap {
+    min-width: 620px; /* assez pour 6 colonnes sans écraser */
+    margin-bottom: 0;
+  }
+  /* Wrapper externe garde la marge */
+  .bt-scroll-outer { margin-bottom: 12px; }
+  .bt-scroll-outer:last-child { margin-bottom: 0; }
+
+  /* Tableaux charges : min plus large */
+  .bt-scroll.charges .bt-wrap { min-width: 560px; }
+  /* Tableau juges 3 cols : pas besoin de beaucoup */
+  .bt-scroll.juges-brief .bt-wrap { min-width: 420px; }
+
+  /* Hint "scroll →" sur mobile */
+  .scroll-hint {
+    display: none;
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--cream-faint);
+    padding: 6px 0 4px;
+    text-align: right;
+  }
+
+  @media (max-width: 767px) {
+    .scroll-hint { display: block; }
+
+    /* Nav : réduire les tabs internes sur mobile */
+    .b-tabs { padding: 0 16px; overflow-x: auto; }
+    .b-tab { padding: 14px 14px; font-size: 9px; white-space: nowrap; }
+
+    /* Section briefing header */
+    .briefing-header { padding: 80px 16px 40px; }
+    .briefing-header::before { font-size: 80px; }
+
+    /* b-panel padding */
+    .b-panel { padding: 32px 16px 60px; }
+
+    /* b-heading wrapping */
+    .b-heading { flex-wrap: wrap; gap: 8px; }
+    .b-line { display: none; }
+    .b-title { font-size: clamp(20px, 6vw, 32px); }
+
+    /* zone cards juges : 1 col */
+    .zone-cards-b { grid-template-columns: 1fr; }
+
+    /* lane separator */
+    .lane-sep { padding: 16px 0 6px; }
+
+    /* val-big plus petit */
+    .val-big { font-size: 16px; }
+
+    /* team name plus petit */
+    .team-n { font-size: 12px; }
+    .ath { font-size: 10px; }
+
+    /* charge-val */
+    .charge-val { font-size: 15px; padding: 3px 10px; }
+  }
+
   .reveal{opacity:0;transform:translateY(40px);transition:all 1s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:translateY(0)}
 </style>
@@ -642,6 +718,9 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
       <span class="b-sub">5 heats</span>
     </div>
 
+    <div class="bt-scroll-outer">
+    <div class="scroll-hint">← scroll →</div>
+    <div class="bt-scroll ">
     <div class="bt-wrap">
       <div class="bt-row hdr" style="grid-template-columns:148px repeat(5,1fr)">
         <div class="bt-cell first">zone</div>
@@ -684,6 +763,7 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
         <div class="bt-cell val">11h40–12h05</div><div class="bt-cell val">12h10–12h35</div><div class="bt-cell val">12h40–13h05</div>
       </div>
     </div>
+    </div></div>
 
     <div class="b-heading">
       <span class="b-num">/02</span>
@@ -693,7 +773,10 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
     </div>
 
     <!-- META -->
-    <div class="bt-wrap" style="margin-bottom:32px">
+    <div class="bt-scroll-outer" style="margin-bottom:32px">
+    <div class="scroll-hint">← scroll →</div>
+    <div class="bt-scroll ">
+    <div class="bt-wrap">
       <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
         <div class="bt-cell first"></div>
         <div class="bt-cell">heat 1</div><div class="bt-cell">heat 2</div>
@@ -724,9 +807,13 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
         <div class="bt-cell val"><div class="pills"><span class="pill p-hf">HF mixte</span><span class="pill p-hhp">HH pro</span></div></div>
       </div>
     </div>
+    </div></div>
 
     <!-- LANE 1 -->
     <div class="lane-sep"><div class="ln">— lane 01</div></div>
+    <div class="bt-scroll-outer">
+    <div class="scroll-hint">← scroll →</div>
+    <div class="bt-scroll ">
     <div class="bt-wrap">
       <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
         <div class="bt-cell first">div.</div>
@@ -753,9 +840,13 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
         <div class="bt-cell val" style="text-align:left"><div class="ath">Guillaume Parsy<br>Julie Zucchiatti</div></div>
       </div>
     </div>
+    </div></div>
 
     <!-- LANE 2 -->
     <div class="lane-sep"><div class="ln">— lane 02</div></div>
+    <div class="bt-scroll-outer">
+    <div class="scroll-hint">← scroll →</div>
+    <div class="bt-scroll ">
     <div class="bt-wrap">
       <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
         <div class="bt-cell first">div.</div>
@@ -779,9 +870,13 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
         <div class="bt-cell val" style="text-align:left"><div class="ath">Philippe Hochart<br>Bronsard Arthur</div></div>
       </div>
     </div>
+    </div></div>
 
     <!-- LANE 3 -->
     <div class="lane-sep"><div class="ln">— lane 03</div></div>
+    <div class="bt-scroll-outer">
+    <div class="scroll-hint">← scroll →</div>
+    <div class="bt-scroll ">
     <div class="bt-wrap">
       <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
         <div class="bt-cell first">div.</div>
@@ -805,9 +900,13 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
         <div class="bt-cell val" style="text-align:left"><div class="ath">Derry Badi<br>Derhille Jimmy</div></div>
       </div>
     </div>
+    </div></div>
 
     <!-- LANE 4 -->
     <div class="lane-sep"><div class="ln">— lane 04</div></div>
+    <div class="bt-scroll-outer">
+    <div class="scroll-hint">← scroll →</div>
+    <div class="bt-scroll ">
     <div class="bt-wrap">
       <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
         <div class="bt-cell first">div.</div>
@@ -831,6 +930,7 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
         <div class="bt-cell val" style="text-align:left"><div class="ath">Baptiste Jozwiak<br>Delefortrie Morgan</div></div>
       </div>
     </div>
+    </div></div>
 
   </div><!-- /bp-athletes -->
 
@@ -843,7 +943,10 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
       <div class="b-line"></div>
     </div>
 
-    <div class="bt-wrap" style="margin-bottom:48px">
+    <div class="bt-scroll-outer" style="margin-bottom:48px">
+
+    <div class="bt-scroll juges-brief">
+    <div class="bt-wrap">
       <div class="bt-row hdr" style="grid-template-columns:140px repeat(3,1fr)">
         <div class="bt-cell first">—</div>
         <div class="bt-cell">zone 1 · strength</div>
@@ -863,6 +966,7 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
         <div class="bt-cell val"><span class="val-small">10h40 – 13h05</span></div>
       </div>
     </div>
+    </div></div>
 
     <div class="b-heading">
       <span class="b-num">/02</span>
@@ -933,7 +1037,10 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
       <div class="b-line"></div>
     </div>
 
-    <div class="bt-wrap" style="margin-bottom:56px">
+    <div class="bt-scroll-outer" style="margin-bottom:56px">
+
+    <div class="bt-scroll charges">
+    <div class="bt-wrap">
       <div class="bt-row hdr" style="grid-template-columns:120px repeat(5,1fr)">
         <div class="bt-cell first">mouvement</div>
         <div class="bt-cell" style="color:#d97706">ff lite</div>
@@ -967,6 +1074,7 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
         <div class="bt-cell val"><span class="charge-val">9 kg</span></div>
       </div>
     </div>
+    </div></div>
 
     <div class="b-heading">
       <span class="b-num">/02</span>
@@ -975,7 +1083,10 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
       <span class="b-sub">workout 1</span>
     </div>
 
-    <div class="bt-wrap" style="margin-bottom:32px">
+    <div class="bt-scroll-outer" style="margin-bottom:32px">
+    <div class="scroll-hint">← scroll →</div>
+    <div class="bt-scroll ">
+    <div class="bt-wrap">
       <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
         <div class="bt-cell first"></div>
         <div class="bt-cell">heat 1</div><div class="bt-cell">heat 2</div>
@@ -998,8 +1109,12 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
         <div class="bt-cell val"><div class="pills"><span class="pill p-hf">HF mixte</span><span class="pill p-hhp">HH pro</span></div></div>
       </div>
     </div>
+    </div></div>
 
     <div class="lane-sep"><div class="ln">— lane 01</div></div>
+    <div class="bt-scroll-outer">
+    <div class="scroll-hint">← scroll →</div>
+    <div class="bt-scroll ">
     <div class="bt-wrap">
       <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
         <div class="bt-cell first">div.</div>
@@ -1015,7 +1130,11 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
         <div class="bt-cell val" style="text-align:left"><div class="team-n">Elle nous a dit oui</div><div class="team-b">Crossfit Koyo</div></div>
       </div>
     </div>
+    </div></div>
     <div class="lane-sep"><div class="ln">— lane 02</div></div>
+    <div class="bt-scroll-outer">
+    <div class="scroll-hint">← scroll →</div>
+    <div class="bt-scroll ">
     <div class="bt-wrap">
       <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
         <div class="bt-cell first">div.</div>
@@ -1031,7 +1150,11 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
         <div class="bt-cell val" style="text-align:left"><div class="team-n">Boyz in the Wod</div><div class="team-b">Vauban</div></div>
       </div>
     </div>
+    </div></div>
     <div class="lane-sep"><div class="ln">— lane 03</div></div>
+    <div class="bt-scroll-outer">
+    <div class="scroll-hint">← scroll →</div>
+    <div class="bt-scroll ">
     <div class="bt-wrap">
       <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
         <div class="bt-cell first">div.</div>
@@ -1047,7 +1170,11 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
         <div class="bt-cell val" style="text-align:left"><div class="team-n">Les Casseurs Flotteurs</div><div class="team-b">Crossfit Bailleul</div></div>
       </div>
     </div>
+    </div></div>
     <div class="lane-sep"><div class="ln">— lane 04</div></div>
+    <div class="bt-scroll-outer">
+    <div class="scroll-hint">← scroll →</div>
+    <div class="bt-scroll ">
     <div class="bt-wrap">
       <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
         <div class="bt-cell first">div.</div>
@@ -1063,6 +1190,7 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
         <div class="bt-cell val" style="text-align:left"><div class="team-n">Les stagiaires</div><div class="team-b">Hygie + Badass Angres</div></div>
       </div>
     </div>
+    </div></div>
 
   </div><!-- /bp-build -->
 
