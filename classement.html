@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Classement · Hygie Hybrid · Édition 01</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@300;400;500;700&family=Fraunces:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0a;--bg2:#0f0f0f;--bg3:#141414;
+  --cream:#f3ecd8;--cream-dim:#8a8576;--cream-faint:#3a3730;
+  --line:#1f1f1f;--line2:#2a2a2a;--accent:#f3ecd8;
+  --gold:#f3ecd8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--cream);font-family:'JetBrains Mono',monospace;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--cream);color:var(--bg)}
+
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.22;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* NAV */
+.nav{
+  position:sticky;top:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px 28px;
+  background:rgba(10,10,10,.85);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(243,236,216,.06);
+}
+.nav-logo{font-family:'Anton',sans-serif;font-size:18px;letter-spacing:.04em;color:var(--cream);text-transform:lowercase;text-decoration:none}
+.nav-logo span{color:var(--cream-dim)}
+.nav-back{
+  display:flex;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--cream-dim);
+  text-decoration:none;transition:color .3s;
+}
+.nav-back:hover{color:var(--cream)}
+.nav-back::before{content:"←";font-family:'Anton',sans-serif;font-size:16px}
+
+/* HERO */
+.hero{
+  padding:80px 28px 60px;
+  border-bottom:1px solid var(--line);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:"CLASSEMENT";
+  position:absolute;bottom:-60px;right:-20px;
+  font-family:'Anton',sans-serif;font-size:clamp(80px,16vw,220px);
+  letter-spacing:-.04em;color:rgba(243,236,216,.025);
+  line-height:1;pointer-events:none;text-transform:uppercase;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse 50% 60% at 30% 50%, rgba(243,236,216,.06) 0%, transparent 60%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto}
+.hero-eyebrow{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:16px}
+.hero-title{
+  font-family:'Anton',sans-serif;
+  font-size:clamp(56px,11vw,150px);
+  line-height:.85;letter-spacing:-.03em;text-transform:lowercase;
+  margin-bottom:24px;
+}
+.hero-title em{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--cream-dim)}
+.hero-meta{
+  display:flex;gap:32px;flex-wrap:wrap;
+  padding-top:20px;border-top:1px solid var(--line);
+}
+.hero-meta-item{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)}
+.hero-meta-item strong{color:var(--cream);font-weight:500;display:block;font-size:12px;margin-top:4px}
+
+/* MARQUEE */
+.marquee{overflow:hidden;background:var(--cream);color:var(--bg);border-top:1px solid var(--cream);border-bottom:1px solid var(--cream)}
+.marquee-track{display:flex;gap:50px;padding:12px 0;animation:scroll 25s linear infinite;white-space:nowrap;font-family:'Anton',sans-serif;font-size:20px;letter-spacing:.06em;text-transform:uppercase}
+.marquee-track span{display:flex;align-items:center;gap:50px}
+.marquee-track span::after{content:"/";opacity:.4}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* FILTER TABS */
+.filter-bar{
+  position:sticky;top:56px;z-index:50;
+  background:rgba(10,10,10,.9);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  padding:0 28px;display:flex;gap:0;overflow-x:auto;
+}
+.filter-bar::-webkit-scrollbar{display:none}
+.f-btn{
+  padding:14px 18px;
+  font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--cream-dim);background:none;
+  border:none;border-bottom:2px solid transparent;
+  cursor:pointer;transition:all .25s;white-space:nowrap;
+}
+.f-btn:hover{color:var(--cream)}
+.f-btn.active{color:var(--cream);border-bottom-color:var(--cream)}
+
+/* MAIN */
+.main{max-width:1200px;margin:0 auto;padding:48px 28px 100px}
+
+/* CATEGORY SECTION */
+.cat-section{display:none;animation:fadeIn .3s ease}
+.cat-section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+.cat-heading{
+  display:flex;align-items:baseline;gap:16px;
+  margin-bottom:32px;
+}
+.cat-num{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-dim);flex-shrink:0}
+.cat-title{font-family:'Anton',sans-serif;font-size:clamp(28px,5vw,56px);letter-spacing:-.02em;text-transform:lowercase;line-height:1}
+.cat-title em{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--cream-dim)}
+.cat-sep{flex:1;height:1px;background:var(--line2)}
+
+/* SCORES TABLE */
+.scores-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:60px}
+.scores-wrap::-webkit-scrollbar{height:3px}
+.scores-wrap::-webkit-scrollbar-track{background:var(--line)}
+.scores-wrap::-webkit-scrollbar-thumb{background:var(--cream-faint)}
+
+.scores-table{
+  width:100%;min-width:640px;
+  border:1px solid var(--line2);
+  border-collapse:separate;border-spacing:0;
+  overflow:hidden;
+}
+.scores-table th{
+  padding:11px 16px;
+  font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim);
+  background:rgba(243,236,216,.04);
+  border-bottom:1px solid var(--line2);
+  border-right:1px solid var(--line2);
+  white-space:nowrap;
+}
+.scores-table th:last-child{border-right:none}
+.scores-table th.total-col{color:var(--cream)}
+
+.scores-table td{
+  padding:14px 16px;
+  border-bottom:1px solid var(--line);
+  border-right:1px solid var(--line);
+  font-size:13px;vertical-align:middle;
+}
+.scores-table td:last-child{border-right:none}
+.scores-table tr:last-child td{border-bottom:none}
+.scores-table tr:hover td{background:rgba(243,236,216,.03)}
+
+/* Rank cell */
+.rank-cell{
+  width:48px;text-align:center;
+  font-family:'Anton',sans-serif;font-size:22px;
+  letter-spacing:-.02em;color:var(--cream-faint);
+}
+.rank-1 .rank-cell{color:var(--cream)}
+.rank-2 .rank-cell{color:rgba(243,236,216,.6)}
+.rank-3 .rank-cell{color:rgba(243,236,216,.4)}
+
+/* Podium bar */
+.rank-1 td:first-child{position:relative}
+.rank-1 td:first-child::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:var(--cream);
+}
+
+/* Team name */
+.team-cell{font-family:'Anton',sans-serif;font-size:16px;letter-spacing:.01em;text-transform:uppercase;color:var(--cream)}
+
+/* Score cells */
+.score-cell{text-align:right;color:var(--cream-dim)}
+.score-val{display:block;font-size:14px;color:var(--cream);font-weight:500}
+.score-unit{display:block;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--cream-dim);margin-top:2px}
+
+/* Total cell */
+.total-cell{
+  text-align:right;background:rgba(243,236,216,.03);
+}
+.total-val{
+  font-family:'Anton',sans-serif;font-size:20px;letter-spacing:-.01em;
+  color:var(--cream);display:block;
+}
+.total-unit{display:block;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--cream-dim);margin-top:2px}
+
+/* Rank badge */
+.rank-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;
+  font-family:'Anton',sans-serif;font-size:14px;
+  border:1px solid var(--cream-faint);color:var(--cream-faint);
+}
+.rank-1 .rank-badge{border-color:var(--cream);color:var(--bg);background:var(--cream)}
+.rank-2 .rank-badge{border-color:rgba(243,236,216,.6);color:rgba(243,236,216,.6)}
+.rank-3 .rank-badge{border-color:rgba(243,236,216,.4);color:rgba(243,236,216,.4)}
+
+/* Z score bars */
+.bar-wrap{display:flex;align-items:center;gap:10px}
+.bar-bg{flex:1;height:3px;background:var(--line2);border-radius:2px;min-width:40px}
+.bar-fill{height:100%;background:var(--cream-faint);border-radius:2px;transition:width .6s cubic-bezier(.2,.7,.2,1)}
+.rank-1 .bar-fill{background:var(--cream)}
+
+@media(max-width:680px){
+  .nav{padding:14px 16px}
+  .hero{padding:60px 16px 40px}
+  .filter-bar{padding:0 16px;top:50px}
+  .main{padding:32px 16px 80px}
+  .cat-title{font-size:clamp(24px,7vw,40px)}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">[ hygie<span>/</span>hybrid ]</a>
+  <a href="index.html#briefing" class="nav-back">retour au site</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">/ classements · édition 01 · 14.06.2026</div>
+    <h1 class="hero-title">résultats<br><em>édition 01.</em></h1>
+    <div class="hero-meta">
+      <div class="hero-meta-item">Zone 1<strong>Strength · kg</strong></div>
+      <div class="hero-meta-item">Zone 2<strong>Endurance · m</strong></div>
+      <div class="hero-meta-item">Zone 3<strong>Metcon · reps</strong></div>
+      <div class="hero-meta-item">Équipes<strong>20 teams</strong></div>
+      <div class="hero-meta-item">Divisions<strong>5 catégories</strong></div>
+    </div>
+  </div>
+</div>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>FF LITE</span><span>FF PRO</span><span>HF MIXTE</span><span>HH LITE</span><span>HH PRO</span><span>ÉDITION 01</span><span>14.06.2026</span><span>HYGIE HYBRID</span>
+    <span>FF LITE</span><span>FF PRO</span><span>HF MIXTE</span><span>HH LITE</span><span>HH PRO</span><span>ÉDITION 01</span><span>14.06.2026</span><span>HYGIE HYBRID</span>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <button class="f-btn active" onclick="showCat('all',this)">Tous</button>
+  <button class="f-btn" onclick="showCat('ff-lite',this)">FF Lite</button>
+  <button class="f-btn" onclick="showCat('ff-pro',this)">FF Pro</button>
+  <button class="f-btn" onclick="showCat('hf',this)">HF Mixte</button>
+  <button class="f-btn" onclick="showCat('hh-lite',this)">HH Lite</button>
+  <button class="f-btn" onclick="showCat('hh-pro',this)">HH Pro</button>
+</div>
+
+<div class="main">
+
+  <!-- ── FF LITE ── -->
+  <div class="cat-section active" id="cat-all-ffl">
+    <div class="cat-heading">
+      <span class="cat-num">/01</span>
+      <h2 class="cat-title">ff <em>lite</em></h2>
+      <div class="cat-sep"></div>
+      <span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)">2 équipes</span>
+    </div>
+    <div class="scores-wrap">
+    <table class="scores-table" id="tbl-ffl">
+      <thead>
+        <tr>
+          <th style="text-align:center">#</th>
+          <th>équipe</th>
+          <th style="text-align:right">z1 · strength</th>
+          <th style="text-align:right">z2 · endurance</th>
+          <th style="text-align:right">z3 · metcon</th>
+          <th class="total-col" style="text-align:right">total</th>
+        </tr>
+      </thead>
+      <tbody id="body-ffl"></tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ── FF PRO ── -->
+  <div class="cat-section active" id="cat-all-ffp">
+    <div class="cat-heading">
+      <span class="cat-num">/02</span>
+      <h2 class="cat-title">ff <em>pro</em></h2>
+      <div class="cat-sep"></div>
+      <span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)">5 équipes</span>
+    </div>
+    <div class="scores-wrap">
+    <table class="scores-table" id="tbl-ffp">
+      <thead>
+        <tr>
+          <th style="text-align:center">#</th>
+          <th>équipe</th>
+          <th style="text-align:right">z1 · strength</th>
+          <th style="text-align:right">z2 · endurance</th>
+          <th style="text-align:right">z3 · metcon</th>
+          <th class="total-col" style="text-align:right">total</th>
+        </tr>
+      </thead>
+      <tbody id="body-ffp"></tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ── HF ── -->
+  <div class="cat-section active" id="cat-all-hf">
+    <div class="cat-heading">
+      <span class="cat-num">/03</span>
+      <h2 class="cat-title">hf <em>mixte</em></h2>
+      <div class="cat-sep"></div>
+      <span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)">8 équipes</span>
+    </div>
+    <div class="scores-wrap">
+    <table class="scores-table" id="tbl-hf">
+      <thead>
+        <tr>
+          <th style="text-align:center">#</th>
+          <th>équipe</th>
+          <th style="text-align:right">z1 · strength</th>
+          <th style="text-align:right">z2 · endurance</th>
+          <th style="text-align:right">z3 · metcon</th>
+          <th class="total-col" style="text-align:right">total</th>
+        </tr>
+      </thead>
+      <tbody id="body-hf"></tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ── HH LITE ── -->
+  <div class="cat-section active" id="cat-all-hhl">
+    <div class="cat-heading">
+      <span class="cat-num">/04</span>
+      <h2 class="cat-title">hh <em>lite</em></h2>
+      <div class="cat-sep"></div>
+      <span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)">1 équipe</span>
+    </div>
+    <div class="scores-wrap">
+    <table class="scores-table" id="tbl-hhl">
+      <thead>
+        <tr>
+          <th style="text-align:center">#</th>
+          <th>équipe</th>
+          <th style="text-align:right">z1 · strength</th>
+          <th style="text-align:right">z2 · endurance</th>
+          <th style="text-align:right">z3 · metcon</th>
+          <th class="total-col" style="text-align:right">total</th>
+        </tr>
+      </thead>
+      <tbody id="body-hhl"></tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ── HH PRO ── -->
+  <div class="cat-section active" id="cat-all-hhp">
+    <div class="cat-heading">
+      <span class="cat-num">/05</span>
+      <h2 class="cat-title">hh <em>pro</em></h2>
+      <div class="cat-sep"></div>
+      <span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)">4 équipes</span>
+    </div>
+    <div class="scores-wrap">
+    <table class="scores-table" id="tbl-hhp">
+      <thead>
+        <tr>
+          <th style="text-align:center">#</th>
+          <th>équipe</th>
+          <th style="text-align:right">z1 · strength</th>
+          <th style="text-align:right">z2 · endurance</th>
+          <th style="text-align:right">z3 · metcon</th>
+          <th class="total-col" style="text-align:right">total</th>
+        </tr>
+      </thead>
+      <tbody id="body-hhp"></tbody>
+    </table>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<script>
+/* ─── DATA ─── */
+const DATA = {
+  ffl: [
+    {team:'LES CHIPIES',      z1:217,   z2:11965, z3:442, total:12624},
+    {team:'MALABAR BIGOUT',   z1:197,   z2:10560, z3:353, total:11110},
+  ],
+  ffp: [
+    {team:'WOODINESSS',              z1:246, z2:13774, z3:467, total:14487},
+    {team:'GAZELLE ET DIESEL',       z1:264, z2:12830, z3:451, total:13545},
+    {team:'7 PACK',                  z1:231, z2:12700, z3:449, total:13380},
+    {team:'BEAUTY AND THE BEAST MODE',z1:266,z2:12196, z3:465, total:12927},
+    {team:'BULLET PROOF',            z1:254, z2:11556, z3:413, total:12223},
+  ],
+  hf: [
+    {team:'THE UNBREAKABLE',     z1:367, z2:14131, z3:536, total:15034},
+    {team:'BIKE CRY REPEAT',     z1:371, z2:13563, z3:485, total:14419},
+    {team:'LES TRAITRES',        z1:297, z2:13212, z3:448, total:13957},
+    {team:'PEACE AND LOVE',      z1:345, z2:12701, z3:500, total:13546},
+    {team:'AU FIL DES WOD',      z1:333, z2:12700, z3:492, total:13525},
+    {team:'EL MINO EL MOMO',     z1:289, z2:12660, z3:458, total:13407},
+    {team:'LE LIEVRE ET LA TORTUE',z1:297,z2:12349,z3:458, total:13104},
+    {team:'LICORNE ET PAILLETES', z1:282, z2:11750, z3:342, total:12374},
+  ],
+  hhl: [
+    {team:'LES RATES',           z1:371, z2:13270, z3:400, total:14041},
+  ],
+  hhp: [
+    {team:'BOYZ IN THE WOD',         z1:478,   z2:15272, z3:547, total:16297},
+    {team:'LES STAGIAIRES',          z1:430,   z2:14576, z3:533, total:15539},
+    {team:'LES CASSEURS FLOTTEURS',  z1:432.5, z2:14400, z3:466, total:15298.5},
+    {team:'ELLE NOUS A DIT OUI',     z1:430,   z2:13433, z3:487, total:14350},
+  ],
+};
+
+/* ─── HELPERS ─── */
+function fmt(n){ return n.toLocaleString('fr-FR') }
+function fmtZ2(n){ return (n/1000).toFixed(1) } // mètres → km
+
+function maxZ(arr, key){ return Math.max(...arr.map(r=>r[key])) }
+
+function buildRow(r, rank, arr){
+  const mxZ1 = maxZ(arr,'z1'), mxZ2 = maxZ(arr,'z2'), mxZ3 = maxZ(arr,'z3');
+  const pZ1 = Math.round(r.z1/mxZ1*100);
+  const pZ2 = Math.round(r.z2/mxZ2*100);
+  const pZ3 = Math.round(r.z3/mxZ3*100);
+  const rankClass = rank===1?'rank-1':rank===2?'rank-2':rank===3?'rank-3':'';
+  return `
+  <tr class="${rankClass}">
+    <td class="rank-cell"><span class="rank-badge">${rank}</span></td>
+    <td class="team-cell">${r.team}</td>
+    <td class="score-cell">
+      <span class="score-val">${fmt(r.z1)} kg</span>
+      <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:${pZ1}%"></div></div></div>
+    </td>
+    <td class="score-cell">
+      <span class="score-val">${fmtZ2(r.z2)} km</span>
+      <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:${pZ2}%"></div></div></div>
+    </td>
+    <td class="score-cell">
+      <span class="score-val">${fmt(r.z3)} reps</span>
+      <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:${pZ3}%"></div></div></div>
+    </td>
+    <td class="total-cell">
+      <span class="total-val">${fmt(r.total)}</span>
+      <span class="total-unit">pts</span>
+    </td>
+  </tr>`;
+}
+
+function populate(bodyId, arr){
+  const sorted = [...arr].sort((a,b)=>b.total-a.total);
+  document.getElementById(bodyId).innerHTML = sorted.map((r,i)=>buildRow(r,i+1,arr)).join('');
+}
+
+/* ─── INIT ─── */
+populate('body-ffl', DATA.ffl);
+populate('body-ffp', DATA.ffp);
+populate('body-hf',  DATA.hf);
+populate('body-hhl', DATA.hhl);
+populate('body-hhp', DATA.hhp);
+
+/* ─── FILTER ─── */
+const CAT_MAP = {
+  'all':     ['cat-all-ffl','cat-all-ffp','cat-all-hf','cat-all-hhl','cat-all-hhp'],
+  'ff-lite': ['cat-all-ffl'],
+  'ff-pro':  ['cat-all-ffp'],
+  'hf':      ['cat-all-hf'],
+  'hh-lite': ['cat-all-hhl'],
+  'hh-pro':  ['cat-all-hhp'],
+};
+
+function showCat(cat, btn){
+  // hide all
+  document.querySelectorAll('.cat-section').forEach(s=>s.classList.remove('active'));
+  // show target
+  (CAT_MAP[cat]||[]).forEach(id=>document.getElementById(id).classList.add('active'));
+  // tab
+  document.querySelectorAll('.f-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

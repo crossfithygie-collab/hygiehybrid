@@ -48,6 +48,13 @@
     transition:all .3s;
   }
   .nav-cta:hover{background:var(--cream);color:var(--bg)}
+  .nav-classement{
+    padding:10px 22px;border:1px solid rgba(243,236,216,.3);color:var(--cream-dim);
+    font-size:10px;letter-spacing:.3em;text-transform:uppercase;text-decoration:none;
+    transition:all .3s;
+  }
+  .nav-classement:hover{border-color:var(--cream);color:var(--cream)}
+  .nav-right{display:flex;align-items:center;gap:10px}
   @media(min-width:900px){.nav-links{display:flex}}
 
   /* ══════════════════════════════════════════
@@ -270,11 +277,14 @@
   .cta-price-info{display:flex;flex-direction:column;gap:6px}
   .cta-price-info span:first-child{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-weight:700}
   .cta-price-info span:last-child{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--cream-dim)}
+  .cta-btns{display:grid;grid-template-columns:1fr;gap:12px}
   .btn-mega{display:inline-flex;align-items:center;justify-content:space-between;gap:30px;padding:30px 40px;background:var(--cream);color:var(--bg);font-family:'Anton',sans-serif;font-size:28px;letter-spacing:.02em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:all .4s cubic-bezier(.2,.7,.2,1);width:100%}
   .btn-mega:hover{background:var(--bg);color:var(--cream);transform:translateY(-4px);outline:1px solid var(--cream);outline-offset:-1px}
+  .btn-mega.btn-ghost{background:transparent;color:var(--cream);outline:1px solid rgba(243,236,216,.25);outline-offset:-1px}
+  .btn-mega.btn-ghost:hover{background:var(--cream);color:var(--bg);outline-color:var(--cream)}
   .btn-mega .arrow{font-size:24px;transition:transform .4s}
   .btn-mega:hover .arrow{transform:translateX(8px)}
-  @media(min-width:900px){.cta-bottom{grid-template-columns:1fr 1fr;align-items:center}}
+  @media(min-width:900px){.cta-bottom{grid-template-columns:1fr 1fr;align-items:center}.cta-btns{grid-template-columns:1fr 1fr}}
 
   /* ══════════════════════════════════════════
      BRIEFING SECTION (nouveau)
@@ -554,7 +564,10 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
     <a href="#cats">Catégories</a>
     <a href="#briefing">Briefing J</a>
   </div>
-  <a href="https://scoring.fit/3100" target="_blank" rel="noopener" class="nav-cta">S'inscrire</a>
+  <div class="nav-right">
+    <a href="classement.html" class="nav-classement">Classements</a>
+    <a href="https://scoring.fit/3100" target="_blank" rel="noopener" class="nav-cta">S'inscrire</a>
+  </div>
 </nav>
 
 <!-- COUNTDOWN -->
@@ -676,10 +689,14 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
     <h2 class="cta-headline reveal">prêt à <em>tout</em><br/>donner ?</h2>
     <div class="cta-bottom">
       <div class="cta-price reveal"><div class="cta-price-num">100€</div><div class="cta-price-info"><span>par team</span><span>2 athlètes</span></div></div>
-      <a href="https://scoring.fit/3100" target="_blank" rel="noopener" class="btn-mega reveal">Inscris ta team <span class="arrow">→</span></a>
+      <div class="cta-btns reveal">
+        <a href="https://scoring.fit/3100" target="_blank" rel="noopener" class="btn-mega">Inscris ta team <span class="arrow">→</span></a>
+        <a href="classement.html" class="btn-mega btn-ghost">Classements <span class="arrow">→</span></a>
+      </div>
     </div>
   </div>
 </section>
+
 
 
 <!-- ══════════════════════════════════════════
@@ -690,7 +707,7 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
   <div class="briefing-header">
     <div class="briefing-header-inner">
       <div>
-        <div class="section-num reveal">/ 06 — BRIEFING JOUR J</div>
+        <div class="section-num reveal">/ 07 — BRIEFING JOUR J</div>
         <h2 class="section-title reveal">le jour <em>J.</em></h2>
         <p class="section-sub reveal">Plannings, placements et charges — tout ce qu'il faut savoir pour le 14 juin.</p>
       </div>
