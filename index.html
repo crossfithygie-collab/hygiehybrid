@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>HYGIE HYBRID — 14.06.2026</title>
+<title>HYGIE HYBRID — ÉDITION 01</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@300;400;500;700&family=Fraunces:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
@@ -42,63 +42,13 @@
   .nav-links{display:none;gap:32px;font-size:11px;letter-spacing:.25em;text-transform:uppercase}
   .nav-links a{color:var(--cream-dim);text-decoration:none;transition:color .3s}
   .nav-links a:hover{color:var(--cream)}
-  .nav-cta{
-    padding:10px 22px;border:1px solid var(--cream);color:var(--cream);
-    font-size:10px;letter-spacing:.3em;text-transform:uppercase;text-decoration:none;
-    transition:all .3s;
-  }
-  .nav-cta:hover{background:var(--cream);color:var(--bg)}
   .nav-classement{
     padding:10px 22px;border:1px solid rgba(243,236,216,.3);color:var(--cream-dim);
     font-size:10px;letter-spacing:.3em;text-transform:uppercase;text-decoration:none;
     transition:all .3s;
   }
   .nav-classement:hover{border-color:var(--cream);color:var(--cream)}
-  .nav-right{display:flex;align-items:center;gap:10px}
   @media(min-width:900px){.nav-links{display:flex}}
-
-  /* ══════════════════════════════════════════
-     COUNTDOWN
-  ══════════════════════════════════════════ */
-  .countdown{
-    padding:120px 28px 60px;
-    border-bottom:1px solid var(--line);
-    position:relative;overflow:hidden;
-    background:var(--bg);
-  }
-  .countdown::before{
-    content:"";position:absolute;inset:0;
-    background:radial-gradient(ellipse 50% 60% at 50% 50%, rgba(243,236,216,.08) 0%, transparent 60%);
-    pointer-events:none;
-  }
-  .countdown-inner{position:relative;z-index:2;max-width:1300px;margin:0 auto}
-  .countdown-label{
-    display:flex;align-items:center;gap:14px;
-    font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--cream-dim);
-    margin-bottom:30px;
-  }
-  .countdown-label::before{
-    content:"";width:6px;height:6px;border-radius:50%;background:var(--cream);
-    animation:pulse 1.6s ease-in-out infinite;
-  }
-  .countdown-blocks{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;align-items:end}
-  .cd-block{display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:0}
-  .cd-num{
-    font-family:'Anton',sans-serif;
-    font-size:clamp(60px,14vw,180px);
-    line-height:.85;letter-spacing:-.03em;
-    color:var(--cream);font-variant-numeric:tabular-nums;width:100%;
-  }
-  .cd-unit{
-    font-family:'JetBrains Mono',monospace;font-size:10px;
-    letter-spacing:.3em;text-transform:uppercase;color:var(--cream-dim);
-    border-top:1px solid var(--line);padding-top:14px;width:100%;
-  }
-  @media(min-width:768px){
-    .countdown{padding:140px 60px 80px}
-    .countdown-blocks{gap:24px}
-    .cd-unit{font-size:11px}
-  }
 
   /* ══════════════════════════════════════════
      HERO
@@ -271,286 +221,12 @@
   .cta-tag{font-size:11px;letter-spacing:.35em;color:var(--cream-dim);margin-bottom:30px;text-transform:uppercase}
   .cta-headline{font-family:'Anton',sans-serif;font-size:clamp(60px,12vw,180px);line-height:.85;letter-spacing:-.03em;text-transform:lowercase;margin-bottom:50px}
   .cta-headline em{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--accent)}
-  .cta-bottom{display:grid;grid-template-columns:1fr;gap:40px;border-top:1px solid var(--line);padding-top:50px}
-  .cta-price{display:flex;align-items:baseline;gap:14px}
-  .cta-price-num{font-family:'Anton',sans-serif;font-size:120px;line-height:.85;color:var(--cream)}
-  .cta-price-info{display:flex;flex-direction:column;gap:6px}
-  .cta-price-info span:first-child{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-weight:700}
-  .cta-price-info span:last-child{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--cream-dim)}
-  .cta-btns{display:grid;grid-template-columns:1fr;gap:12px}
-  .btn-mega{display:inline-flex;align-items:center;justify-content:space-between;gap:30px;padding:30px 40px;background:var(--cream);color:var(--bg);font-family:'Anton',sans-serif;font-size:28px;letter-spacing:.02em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:all .4s cubic-bezier(.2,.7,.2,1);width:100%}
-  .btn-mega:hover{background:var(--bg);color:var(--cream);transform:translateY(-4px);outline:1px solid var(--cream);outline-offset:-1px}
-  .btn-mega.btn-ghost{background:transparent;color:var(--cream);outline:1px solid rgba(243,236,216,.25);outline-offset:-1px}
-  .btn-mega.btn-ghost:hover{background:var(--cream);color:var(--bg);outline-color:var(--cream)}
-  .btn-mega .arrow{font-size:24px;transition:transform .4s}
-  .btn-mega:hover .arrow{transform:translateX(8px)}
-  @media(min-width:900px){.cta-bottom{grid-template-columns:1fr 1fr;align-items:center}.cta-btns{grid-template-columns:1fr 1fr}}
+  @media(min-width:900px){}
 
-  /* ══════════════════════════════════════════
-     BRIEFING SECTION (nouveau)
-  ══════════════════════════════════════════ */
-  .briefing-section{
-    background:var(--bg);
-    border-bottom:1px solid var(--line);
-  }
-
-  /* Header de section */
-  .briefing-header{
-    padding:120px 28px 60px;
-    border-bottom:1px solid var(--line);
-    position:relative;overflow:hidden;
-  }
-  .briefing-header::before{
-    content:"BRIEFING";
-    position:absolute;bottom:-40px;right:-20px;
-    font-family:'Anton',sans-serif;font-size:clamp(100px,18vw,260px);
-    letter-spacing:-.04em;color:rgba(243,236,216,.03);
-    line-height:1;pointer-events:none;text-transform:uppercase;
-  }
-  .briefing-header-inner{position:relative;z-index:2;max-width:1300px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:30px}
-
-  /* Tabs internes */
-  .b-tabs{
-    display:flex;gap:0;
-    border-bottom:1px solid var(--line);
-    padding:0 28px;
-    background:rgba(10,10,10,.6);
-    backdrop-filter:blur(8px);
-    position:sticky;top:68px;z-index:50;
-  }
-  .b-tab{
-    padding:16px 22px;
-    font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;
-    letter-spacing:.25em;text-transform:uppercase;
-    color:var(--cream-dim);background:none;
-    border:none;border-bottom:2px solid transparent;
-    cursor:pointer;transition:all .3s;
-  }
-  .b-tab:hover{color:var(--cream)}
-  .b-tab.active{color:var(--cream);border-bottom-color:var(--cream)}
-
-  /* Tab panels */
-  .b-panel{display:none;max-width:1300px;margin:0 auto;padding:60px 28px 80px}
-  .b-panel.active{display:block}
-
-  /* Sub section heading */
-  .b-heading{
-    display:flex;align-items:baseline;gap:18px;
-    margin-bottom:24px;margin-top:56px;
-  }
-  .b-heading:first-child{margin-top:0}
-  .b-num{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-dim);flex-shrink:0}
-  .b-title{font-family:'Anton',sans-serif;font-size:clamp(22px,4vw,42px);letter-spacing:-.02em;text-transform:lowercase;line-height:1}
-  .b-title em{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--cream-dim)}
-  .b-line{flex:1;height:1px;background:var(--line)}
-  .b-sub{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)}
-
-  /* Tables */
-  .bt-wrap{border:1px solid rgba(243,236,216,.1);overflow:hidden;margin-bottom:12px}
-  .bt-row{display:grid;border-bottom:1px solid rgba(243,236,216,.06)}
-  .bt-row:last-child{border-bottom:none}
-
-  .bt-cell{padding:12px 16px;font-family:'JetBrains Mono',monospace;font-size:12px;border-right:1px solid rgba(243,236,216,.06)}
-  .bt-cell:last-child{border-right:none}
-
-  /* header row */
-  .bt-row.hdr .bt-cell{
-    padding:10px 16px;
-    font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--cream-dim);background:rgba(243,236,216,.04);
-  }
-  .bt-row.hdr .bt-cell.first{color:rgba(243,236,216,.25)}
-
-  /* label cells */
-  .bt-cell.lbl{
-    background:rgba(243,236,216,.03);
-    display:flex;align-items:center;gap:10px;
-    font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;
-    color:var(--cream-dim);
-  }
-  .pip{width:5px;height:5px;border-radius:50%;flex-shrink:0}
-  .c-brief{background:var(--cream)}
-  .c-warm{background:#f4a22d}
-  .c-str{background:#4a9eff}
-  .c-ref{background:#4ec95e}
-  .c-end{background:#a855f7}
-  .c-rec{background:#64748b}
-  .c-met{background:#ef4444}
-
-  /* value */
-  .bt-cell.val{color:var(--cream);text-align:center}
-  .bt-row.br .bt-cell.val{color:var(--accent);font-weight:700}
-  .bt-row.br .bt-cell.lbl{color:var(--cream)}
-  .val-big{font-family:'Anton',sans-serif;font-size:20px;letter-spacing:.02em;display:block}
-  .val-small{font-size:10px;color:var(--cream-dim);letter-spacing:.1em;display:block;margin-top:2px}
-
-  /* pills */
-  .pills{display:flex;flex-wrap:wrap;gap:4px;justify-content:center}
-  .pill{font-size:9px;font-weight:700;letter-spacing:.08em;padding:3px 8px;border:1px solid;font-family:'JetBrains Mono',monospace}
-  .p-ffl{color:#d97706;border-color:rgba(217,119,6,.4)}
-  .p-ffp{color:#a78bfa;border-color:rgba(167,139,250,.4)}
-  .p-hhl{color:#60a5fa;border-color:rgba(96,165,250,.4)}
-  .p-hf {color:#4ade80;border-color:rgba(74,222,128,.4)}
-  .p-hhp{color:#f87171;border-color:rgba(248,113,113,.4)}
-
-  /* teams */
-  .team-n{font-family:'Anton',sans-serif;font-size:14px;letter-spacing:.02em;text-transform:uppercase;color:var(--cream);line-height:1.1}
-  .team-b{font-size:10px;color:var(--cream-dim);margin-top:3px;letter-spacing:.06em}
-  .ath{font-size:11px;color:var(--cream-dim);line-height:1.8;letter-spacing:.04em}
-
-  /* lane separator */
-  .lane-sep{display:flex;align-items:center;gap:16px;padding:20px 0 8px}
-  .lane-sep .ln{font-family:'Anton',sans-serif;font-size:10px;letter-spacing:.2em;color:var(--cream-faint);text-transform:lowercase}
-  .lane-sep::after{content:"";flex:1;height:1px;background:var(--line)}
-
-  /* zone cards (juges) */
-  .zone-cards-b{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-  @media(max-width:720px){.zone-cards-b{grid-template-columns:1fr}}
-  .zcard{background:var(--bg);padding:40px 28px;position:relative;overflow:hidden;transition:background .4s}
-  .zcard:hover{background:var(--bg-2)}
-  .zcard::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.7,0,.3,1)}
-  .zcard:hover::before{transform:scaleX(1)}
-  .zcard-num{font-family:'Anton',sans-serif;font-size:72px;line-height:.85;letter-spacing:-.03em;color:var(--cream-faint);margin-bottom:16px}
-  .zcard h3{font-family:'Anton',sans-serif;font-size:26px;letter-spacing:.02em;text-transform:uppercase;color:var(--cream);margin-bottom:8px}
-  .zcard-meta{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:28px;border-bottom:1px solid var(--line);padding-bottom:20px}
-  .staff-list{list-style:none;margin-bottom:24px}
-  .staff-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px;color:var(--cream-dim)}
-  .staff-item:last-child{border-bottom:none}
-  .staff-n{font-family:'Anton',sans-serif;font-size:18px;color:var(--cream-faint);width:24px;flex-shrink:0}
-  .vchips{display:flex;flex-direction:column;gap:4px}
-  .vchip{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cream-dim);background:var(--bg-2);border:1px solid var(--line);padding:5px 10px;letter-spacing:.1em}
-
-  /* charges table */
-  .charge-val{
-    display:inline-block;
-    font-family:'Anton',sans-serif;font-size:18px;letter-spacing:.02em;
-    color:var(--cream);background:rgba(243,236,216,.05);
-    border:1px solid rgba(243,236,216,.1);padding:4px 14px;
-  }
-  .charge-empty{color:var(--cream-faint)}
-
-  @media(min-width:768px){
-    .briefing-header{padding:140px 60px 80px}
-    .b-tabs{padding:0 60px}
-    .b-panel{padding:60px 60px 100px}
-  }
-
-  /* ══════════════════════════════════════════
-     FOOTER
-  ══════════════════════════════════════════ */
-  footer{padding:60px 28px 30px;display:grid;grid-template-columns:1fr;gap:40px;border-top:1px solid var(--line);background:var(--bg-2)}
-  .foot-logo{font-family:'Anton',sans-serif;font-size:48px;text-transform:lowercase;letter-spacing:-.02em}
-  .foot-logo span{color:var(--cream-dim)}
-  .foot-meta{display:flex;flex-direction:column;gap:14px;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--cream-dim)}
-  .foot-meta a{color:var(--cream);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .3s}
-  .foot-meta a:hover{border-color:var(--accent)}
-  .foot-bottom{grid-column:1/-1;border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--cream-dim)}
-  @media(min-width:768px){
-    footer{grid-template-columns:2fr 1fr 1fr;padding:80px 60px 30px}
-    .nav{padding:24px 40px}
-    .hero-content{padding:0 60px 80px}
-    .parcours-header{padding:140px 60px 80px}
-    .metcon{padding:160px 60px}
-    .cats{padding:160px 60px}
-    .cta{padding:180px 60px}
-  }
-
-
-  /* ══════════════════════════════════════════
-     MOBILE — tableaux scrollables + ajustements
-  ══════════════════════════════════════════ */
-
-  /* Wrapper scrollable pour tous les tableaux de la section briefing */
-  .bt-scroll {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    /* petit indicateur visuel sur mobile */
-  }
-  .bt-scroll::-webkit-scrollbar { height: 3px; }
-  .bt-scroll::-webkit-scrollbar-track { background: var(--line); }
-  .bt-scroll::-webkit-scrollbar-thumb { background: var(--cream-faint); }
-
-  /* Les bt-wrap dans un scroll conservent leur min-width */
-  .bt-scroll .bt-wrap {
-    min-width: 620px; /* assez pour 6 colonnes sans écraser */
-    margin-bottom: 0;
-  }
-  /* Wrapper externe garde la marge */
-  .bt-scroll-outer { margin-bottom: 12px; }
-  .bt-scroll-outer:last-child { margin-bottom: 0; }
-
-  /* Tableaux charges : min plus large */
-  .bt-scroll.charges .bt-wrap { min-width: 560px; }
-  /* Tableau juges 3 cols : pas besoin de beaucoup */
-  .bt-scroll.juges-brief .bt-wrap { min-width: 420px; }
-
-  /* Hint "scroll →" sur mobile */
-  .scroll-hint {
-    display: none;
-    font-size: 10px;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color: var(--cream-faint);
-    padding: 6px 0 4px;
-    text-align: right;
-  }
-
-  @media (max-width: 767px) {
-    .scroll-hint { display: block; }
-
-    /* Nav : réduire les tabs internes sur mobile */
-    .b-tabs { padding: 0 16px; overflow-x: auto; }
-    .b-tab { padding: 14px 14px; font-size: 9px; white-space: nowrap; }
-
-    /* Section briefing header */
-    .briefing-header { padding: 80px 16px 40px; }
-    .briefing-header::before { font-size: 80px; }
-
-    /* b-panel padding */
-    .b-panel { padding: 32px 16px 60px; }
-
-    /* b-heading wrapping */
-    .b-heading { flex-wrap: wrap; gap: 8px; }
-    .b-line { display: none; }
-    .b-title { font-size: clamp(20px, 6vw, 32px); }
-
-    /* zone cards juges : 1 col */
-    .zone-cards-b { grid-template-columns: 1fr; }
-
-    /* lane separator */
-    .lane-sep { padding: 16px 0 6px; }
-
-    /* val-big plus petit */
-    .val-big { font-size: 16px; }
-
-    /* team name plus petit */
-    .team-n { font-size: 12px; }
-    .ath { font-size: 10px; }
-
-    /* charge-val */
-    .charge-val { font-size: 15px; padding: 3px 10px; }
-  }
-
-  .reveal{opacity:0;transform:translateY(40px);transition:all 1s cubic-bezier(.2,.7,.2,1)}
+    .reveal{opacity:0;transform:translateY(40px);transition:all 1s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:translateY(0)}
 </style>
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '24722413320789353');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
-/></noscript>
 </head>
 
 <body>
@@ -562,42 +238,23 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
     <a href="#parcours">Parcours</a>
     <a href="#metcon">Metcon</a>
     <a href="#cats">Catégories</a>
-    <a href="#briefing">Briefing J</a>
   </div>
-  <div class="nav-right">
-    <a href="classement.html" class="nav-classement">Classements</a>
-    <a href="https://scoring.fit/3100" target="_blank" rel="noopener" class="nav-cta">S'inscrire</a>
-  </div>
+  <a href="classement.html" class="nav-classement">Classements</a>
 </nav>
-
-<!-- COUNTDOWN -->
-<section class="countdown">
-  <div class="countdown-inner">
-    <div class="countdown-label">J — 14.06.2026 · le décompte est lancé</div>
-    <div class="countdown-blocks">
-      <div class="cd-block"><div class="cd-num" id="cd-days">--</div><div class="cd-unit">jours</div></div>
-      <div class="cd-block"><div class="cd-num" id="cd-hours">--</div><div class="cd-unit">heures</div></div>
-      <div class="cd-block"><div class="cd-num" id="cd-mins">--</div><div class="cd-unit">minutes</div></div>
-      <div class="cd-block"><div class="cd-num" id="cd-secs">--</div><div class="cd-unit">secondes</div></div>
-    </div>
-  </div>
-</section>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="hero-tag"><span class="live">●</span> ÉDITION 01 · 14 JUIN 2026</div>
+    <div class="hero-tag"><span class="live">●</span> ÉDITION 01</div>
     <h1 class="hero-title">
       <span class="line">hygie</span>
       <span class="line stroke">hybrid<em>.</em></span>
     </h1>
     <div class="hero-bottom">
       <div class="hero-info">
-        <div class="info-block"><div class="label">Date</div><div class="value">14.06.2026</div></div>
         <div class="info-block"><div class="label">Format</div><div class="value">Hybride · 2H30</div></div>
         <div class="info-block"><div class="label">Catégories</div><div class="value">04</div></div>
-        <div class="info-block"><div class="label">Prix</div><div class="value">100€ / team</div></div>
       </div>
       <div class="hero-scroll">scroll</div>
     </div>
@@ -607,8 +264,8 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
 <!-- MARQUEE -->
 <div class="marquee">
   <div class="marquee-track">
-    <span>STRENGTH</span><span>ENDURANCE</span><span>METCON</span><span>HYBRID</span><span>14.06.2026</span><span>NO LIMITS</span>
-    <span>STRENGTH</span><span>ENDURANCE</span><span>METCON</span><span>HYBRID</span><span>14.06.2026</span><span>NO LIMITS</span>
+    <span>STRENGTH</span><span>ENDURANCE</span><span>METCON</span><span>HYBRID</span><span>NO LIMITS</span>
+    <span>STRENGTH</span><span>ENDURANCE</span><span>METCON</span><span>HYBRID</span><span>NO LIMITS</span>
   </div>
 </div>
 
@@ -639,7 +296,7 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
   <div class="zone-band reveal"><div class="zone-band-inner"><div class="zone-num-big">03</div><div><div class="zone-mega">refuel</div><div class="zone-meta"><span class="zone-time">50' — 60'</span><span class="zone-desc">Stand hydratation Smartfuel. Préparation au bloc endurance.</span></div></div><div class="zone-arrow">→</div></div></div>
   <div class="zone-band reveal"><div class="zone-band-inner"><div class="zone-num-big">04</div><div><div class="zone-mega">endurance</div><div class="zone-meta"><span class="zone-time">60' — 90'</span><span class="zone-desc">AMRAP 20 min · Run &amp; Bike. Switch toutes les 500 m.</span></div></div><div class="zone-arrow">→</div></div></div>
   <div class="zone-band reveal"><div class="zone-band-inner"><div class="zone-num-big">05</div><div><div class="zone-mega">recovery</div><div class="zone-meta"><span class="zone-time">90' — 120'</span><span class="zone-desc">Récupération active. Rouleaux, étirements, mobilité.</span></div></div><div class="zone-arrow">→</div></div></div>
-  <div class="zone-band reveal"><div class="zone-band-inner"><div class="zone-num-big">06</div><div><div class="zone-mega">metcon</div><div class="zone-meta"><span class="zone-time">120' — 150'</span><span class="zone-desc">Le bouquet final. Time cap 25 min. Tout donner, tout finir.</span></div></div><div class="zone-arrow">→</div></div></div>
+  <div class="zone-band reveal"><div class="zone-band-inner"><div class="zone-num-big">06</div><div><div class="zone-mega">metcon</div><div class="zone-meta"><span class="zone-time">120' — 150'</span><span class="zone-desc">Le bouquet final. AMRAP 25 min. Tout donner, tout finir.</span></div></div><div class="zone-arrow">→</div></div></div>
 </section>
 
 <!-- METCON -->
@@ -650,7 +307,7 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
         <div class="section-num reveal">/ 03 — METCON FINALE</div>
         <h2 class="section-title reveal">le <em>boss</em><br/>fight.</h2>
       </div>
-      <div class="metcon-cap reveal">TIME CAP · 25 MIN</div>
+      <div class="metcon-cap reveal">AMRAP · 25 MIN</div>
     </div>
     <div class="metcon-grid">
       <div class="metcon-row reveal"><div class="metcon-cal">60</div><div class="metcon-mvt">Cal Ski Erg</div><div class="metcon-tag">01</div></div>
@@ -681,537 +338,7 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta">
-  <div class="cta-bg-text">14.06.26</div>
-  <div class="cta-inner">
-    <div class="cta-tag reveal">/ 05 — INSCRIPTIONS OUVERTES</div>
-    <h2 class="cta-headline reveal">prêt à <em>tout</em><br/>donner ?</h2>
-    <div class="cta-bottom">
-      <div class="cta-price reveal"><div class="cta-price-num">100€</div><div class="cta-price-info"><span>par team</span><span>2 athlètes</span></div></div>
-      <div class="cta-btns reveal">
-        <a href="https://scoring.fit/3100" target="_blank" rel="noopener" class="btn-mega">Inscris ta team <span class="arrow">→</span></a>
-        <a href="classement.html" class="btn-mega btn-ghost">Classements <span class="arrow">→</span></a>
-      </div>
-    </div>
-  </div>
-</section>
 
-
-
-<!-- ══════════════════════════════════════════
-     BRIEFING J — NOUVELLE SECTION
-══════════════════════════════════════════ -->
-<section class="briefing-section" id="briefing">
-
-  <div class="briefing-header">
-    <div class="briefing-header-inner">
-      <div>
-        <div class="section-num reveal">/ 07 — BRIEFING JOUR J</div>
-        <h2 class="section-title reveal">le jour <em>J.</em></h2>
-        <p class="section-sub reveal">Plannings, placements et charges — tout ce qu'il faut savoir pour le 14 juin.</p>
-      </div>
-      <div style="display:flex;align-items:center;gap:10px;border:1px solid rgba(243,236,216,.2);padding:12px 20px;align-self:flex-end" class="reveal">
-        <span style="width:6px;height:6px;border-radius:50%;background:var(--cream);display:block;animation:pulse 1.6s infinite"></span>
-        <span style="font-size:10px;letter-spacing:.3em;text-transform:uppercase">14.06.2026 · 08h00</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- TABS -->
-  <div class="b-tabs">
-    <button class="b-tab active" onclick="bTab('athletes',this)">Athlètes</button>
-    <button class="b-tab" onclick="bTab('juges',this)">Juges</button>
-    <button class="b-tab" onclick="bTab('build',this)">Build</button>
-  </div>
-
-  <!-- ── TAB ATHLÈTES ── -->
-  <div class="b-panel active" id="bp-athletes">
-
-    <div class="b-heading">
-      <span class="b-num">/01</span>
-      <h3 class="b-title">planning <em>vagues</em></h3>
-      <div class="b-line"></div>
-      <span class="b-sub">5 heats</span>
-    </div>
-
-    <div class="bt-scroll-outer">
-    <div class="scroll-hint">← scroll →</div>
-    <div class="bt-scroll ">
-    <div class="bt-wrap">
-      <div class="bt-row hdr" style="grid-template-columns:148px repeat(5,1fr)">
-        <div class="bt-cell first">zone</div>
-        <div class="bt-cell">heat 1</div><div class="bt-cell">heat 2</div>
-        <div class="bt-cell">heat 3</div><div class="bt-cell">heat 4</div><div class="bt-cell">heat 5</div>
-      </div>
-      <div class="bt-row br" style="grid-template-columns:148px repeat(5,1fr)">
-        <div class="bt-cell lbl"><div class="pip c-brief"></div>briefing</div>
-        <div class="bt-cell val">8h10</div><div class="bt-cell val">8h40</div>
-        <div class="bt-cell val">9h10</div><div class="bt-cell val">9h40</div><div class="bt-cell val">10h10</div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:148px repeat(5,1fr)">
-        <div class="bt-cell lbl"><div class="pip c-warm"></div>warm-up</div>
-        <div class="bt-cell val">8h30–9h</div><div class="bt-cell val">9h–9h30</div>
-        <div class="bt-cell val">9h30–10h</div><div class="bt-cell val">10h–10h30</div><div class="bt-cell val">10h30–11h</div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:148px repeat(5,1fr)">
-        <div class="bt-cell lbl"><div class="pip c-str"></div>z1 strength</div>
-        <div class="bt-cell val">9h–9h30</div><div class="bt-cell val">9h30–10h</div>
-        <div class="bt-cell val">10h–10h30</div><div class="bt-cell val">10h30–11h</div><div class="bt-cell val">11h–11h30</div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:148px repeat(5,1fr)">
-        <div class="bt-cell lbl"><div class="pip c-ref"></div>refuel</div>
-        <div class="bt-cell val">9h30–9h40</div><div class="bt-cell val">10h–10h10</div>
-        <div class="bt-cell val">10h30–10h40</div><div class="bt-cell val">11h–11h10</div><div class="bt-cell val">11h30–11h40</div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:148px repeat(5,1fr)">
-        <div class="bt-cell lbl"><div class="pip c-end"></div>z2 endurance</div>
-        <div class="bt-cell val">9h40–10h10</div><div class="bt-cell val">10h10–10h40</div>
-        <div class="bt-cell val">10h40–11h10</div><div class="bt-cell val">11h10–11h40</div><div class="bt-cell val">11h40–12h10</div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:148px repeat(5,1fr)">
-        <div class="bt-cell lbl"><div class="pip c-rec"></div>recovery</div>
-        <div class="bt-cell val">10h10–10h40</div><div class="bt-cell val">10h40–11h10</div>
-        <div class="bt-cell val">11h10–11h40</div><div class="bt-cell val">11h40–12h10</div><div class="bt-cell val">12h10–12h40</div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:148px repeat(5,1fr)">
-        <div class="bt-cell lbl"><div class="pip c-met"></div>z3 metcon</div>
-        <div class="bt-cell val">10h40–11h05</div><div class="bt-cell val">11h10–11h35</div>
-        <div class="bt-cell val">11h40–12h05</div><div class="bt-cell val">12h10–12h35</div><div class="bt-cell val">12h40–13h05</div>
-      </div>
-    </div>
-    </div></div>
-
-    <div class="b-heading">
-      <span class="b-num">/02</span>
-      <h3 class="b-title">placement <em>équipes</em></h3>
-      <div class="b-line"></div>
-      <span class="b-sub">workout 1 · 4 lanes</span>
-    </div>
-
-    <!-- META -->
-    <div class="bt-scroll-outer" style="margin-bottom:32px">
-    <div class="scroll-hint">← scroll →</div>
-    <div class="bt-scroll ">
-    <div class="bt-wrap">
-      <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell first"></div>
-        <div class="bt-cell">heat 1</div><div class="bt-cell">heat 2</div>
-        <div class="bt-cell">heat 3</div><div class="bt-cell">heat 4</div><div class="bt-cell">heat 5</div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell lbl">briefing</div>
-        <div class="bt-cell val"><span class="val-big">08:10</span></div>
-        <div class="bt-cell val"><span class="val-big">08:40</span></div>
-        <div class="bt-cell val"><span class="val-big">09:10</span></div>
-        <div class="bt-cell val"><span class="val-big">09:40</span></div>
-        <div class="bt-cell val"><span class="val-big">10:10</span></div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell lbl">créneau</div>
-        <div class="bt-cell val"><span class="val-small">08:30–11:05</span></div>
-        <div class="bt-cell val"><span class="val-small">09:00–11:35</span></div>
-        <div class="bt-cell val"><span class="val-small">09:30–12:05</span></div>
-        <div class="bt-cell val"><span class="val-small">10:00–12:35</span></div>
-        <div class="bt-cell val"><span class="val-small">10:30–13:05</span></div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell lbl">divisions</div>
-        <div class="bt-cell val"><div class="pills"><span class="pill p-ffl">FF lite</span><span class="pill p-ffp">FF pro</span></div></div>
-        <div class="bt-cell val"><div class="pills"><span class="pill p-ffp">FF pro</span><span class="pill p-hhl">HH lite</span></div></div>
-        <div class="bt-cell val"><div class="pills"><span class="pill p-hf">HF mixte</span></div></div>
-        <div class="bt-cell val"><div class="pills"><span class="pill p-hf">HF mixte</span></div></div>
-        <div class="bt-cell val"><div class="pills"><span class="pill p-hf">HF mixte</span><span class="pill p-hhp">HH pro</span></div></div>
-      </div>
-    </div>
-    </div></div>
-
-    <!-- LANE 1 -->
-    <div class="lane-sep"><div class="ln">— lane 01</div></div>
-    <div class="bt-scroll-outer">
-    <div class="scroll-hint">← scroll →</div>
-    <div class="bt-scroll ">
-    <div class="bt-wrap">
-      <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell first">div.</div>
-        <div class="bt-cell"><span class="pill p-ffl">FF lite</span></div>
-        <div class="bt-cell"><span class="pill p-ffp">FF pro</span></div>
-        <div class="bt-cell"><span class="pill p-hf">HF mixte</span></div>
-        <div class="bt-cell"><span class="pill p-hf">HF mixte</span></div>
-        <div class="bt-cell"><span class="pill p-hf">HF mixte</span></div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell lbl">équipe</div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Les chipies</div><div class="team-b">Hygie</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Les Bulletproof</div><div class="team-b">Hygie CrossFit</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Les traîtres</div><div class="team-b">Hygie</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Licornes &amp; Paillettes</div><div class="team-b">Crossfit Initium</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Elle nous a dit oui</div><div class="team-b">Crossfit Koyo</div></div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell lbl">athlètes</div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Justine Hoffmann<br>Pauline Kolodziejczak</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Virginie Gerinecz<br>Faustine Nicolas</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Jérémy Margez<br>Avez Valentine</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Dahan Yoram<br>Kelly Paillettes</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Guillaume Parsy<br>Julie Zucchiatti</div></div>
-      </div>
-    </div>
-    </div></div>
-
-    <!-- LANE 2 -->
-    <div class="lane-sep"><div class="ln">— lane 02</div></div>
-    <div class="bt-scroll-outer">
-    <div class="scroll-hint">← scroll →</div>
-    <div class="bt-scroll ">
-    <div class="bt-wrap">
-      <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell first">div.</div>
-        <div class="bt-cell"><span class="pill p-ffl">FF lite</span></div><div class="bt-cell"><span class="pill p-ffp">FF pro</span></div>
-        <div class="bt-cell"><span class="pill p-hf">HF mixte</span></div><div class="bt-cell"><span class="pill p-hf">HF mixte</span></div><div class="bt-cell"><span class="pill p-hhp">HH pro</span></div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell lbl">équipe</div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Malabar bi-goût</div><div class="team-b">Fwa crossfit</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Les 7 pack</div><div class="team-b">FWA Crossfit</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">The unbreakable</div><div class="team-b">Hygie / Heresy</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Pace and Love</div><div class="team-b">Crossfit LXII</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Boyz in the Wod</div><div class="team-b">Vauban</div></div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell lbl">athlètes</div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Malika Dahmani<br>Vanleene Christelle</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Lutécia Damiens<br>Lise Machurez</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Justine Houssin<br>Arnaud Tetelin</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Julie Carlier<br>Dacheux Antoine</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Philippe Hochart<br>Bronsard Arthur</div></div>
-      </div>
-    </div>
-    </div></div>
-
-    <!-- LANE 3 -->
-    <div class="lane-sep"><div class="ln">— lane 03</div></div>
-    <div class="bt-scroll-outer">
-    <div class="scroll-hint">← scroll →</div>
-    <div class="bt-scroll ">
-    <div class="bt-wrap">
-      <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell first">div.</div>
-        <div class="bt-cell"><span class="pill p-ffp">FF pro</span></div><div class="bt-cell"><span class="pill p-ffp">FF pro</span></div>
-        <div class="bt-cell"><span class="pill p-hf">HF mixte</span></div><div class="bt-cell"><span class="pill p-hf">HF mixte</span></div><div class="bt-cell"><span class="pill p-hhp">HH pro</span></div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell lbl">équipe</div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Diesel &amp; Gazelle</div><div class="team-b">Virtus Honor &amp; Badass</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Beauty in beast mode</div><div class="team-b">Hygie</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Au fil des wods</div><div class="team-b">Cambrai Crossfit</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Le lièvre et la tortue</div><div class="team-b">Hygie</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Les Casseurs Flotteurs</div><div class="team-b">Crossfit Bailleul</div></div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell lbl">athlètes</div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Mélanie Kesteloot<br>Julie Kesteloot</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Amélie Lorek<br>Dapvril Alison</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Audrey Tellier<br>Mazurek J-C</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Clémence Thobois<br>Fouquet Antoine</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Derry Badi<br>Derhille Jimmy</div></div>
-      </div>
-    </div>
-    </div></div>
-
-    <!-- LANE 4 -->
-    <div class="lane-sep"><div class="ln">— lane 04</div></div>
-    <div class="bt-scroll-outer">
-    <div class="scroll-hint">← scroll →</div>
-    <div class="bt-scroll ">
-    <div class="bt-wrap">
-      <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell first">div.</div>
-        <div class="bt-cell"><span class="pill p-ffp">FF pro</span></div><div class="bt-cell"><span class="pill p-hhl">HH lite</span></div>
-        <div class="bt-cell"><span class="pill p-hf">HF mixte</span></div><div class="bt-cell"><span class="pill p-hf">HF mixte</span></div><div class="bt-cell"><span class="pill p-hhp">HH pro</span></div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell lbl">équipe</div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Les WOODinesss</div><div class="team-b">Hygie</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Les ratés</div><div class="team-b">—</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Bike Cry Repeat</div><div class="team-b">Crossfit Vauban</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">El Mimo del Roro</div><div class="team-b">—</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Les stagiaires</div><div class="team-b">Hygie + Badass Angres</div></div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell lbl">athlètes</div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Tant Coraline<br>Dez Océane</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Deldalle Clément<br>Eekhout Théo</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Danel Victor<br>Tarlowski Manon</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Moreel Morgane<br>Pelini Romain</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="ath">Baptiste Jozwiak<br>Delefortrie Morgan</div></div>
-      </div>
-    </div>
-    </div></div>
-
-  </div><!-- /bp-athletes -->
-
-  <!-- ── TAB JUGES ── -->
-  <div class="b-panel" id="bp-juges">
-
-    <div class="b-heading">
-      <span class="b-num">/01</span>
-      <h3 class="b-title">briefings <em>&amp; horaires</em></h3>
-      <div class="b-line"></div>
-    </div>
-
-    <div class="bt-scroll-outer" style="margin-bottom:48px">
-
-    <div class="bt-scroll juges-brief">
-    <div class="bt-wrap">
-      <div class="bt-row hdr" style="grid-template-columns:140px repeat(3,1fr)">
-        <div class="bt-cell first">—</div>
-        <div class="bt-cell">zone 1 · strength</div>
-        <div class="bt-cell">zone 2 · endurance</div>
-        <div class="bt-cell">zone 3 · metcon</div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:140px repeat(3,1fr)">
-        <div class="bt-cell lbl">briefing</div>
-        <div class="bt-cell val"><span class="val-big">8h10</span></div>
-        <div class="bt-cell val"><span class="val-big">9h10</span></div>
-        <div class="bt-cell val"><span class="val-big">9h40</span></div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:140px repeat(3,1fr)">
-        <div class="bt-cell lbl">horaires</div>
-        <div class="bt-cell val"><span class="val-small">9h00 – 11h30</span></div>
-        <div class="bt-cell val"><span class="val-small">9h40 – 12h10</span></div>
-        <div class="bt-cell val"><span class="val-small">10h40 – 13h05</span></div>
-      </div>
-    </div>
-    </div></div>
-
-    <div class="b-heading">
-      <span class="b-num">/02</span>
-      <h3 class="b-title">staff <em>par zone</em></h3>
-      <div class="b-line"></div>
-      <span class="b-sub">positions 1–12</span>
-    </div>
-
-    <div class="zone-cards-b">
-      <div class="zcard">
-        <div class="zcard-num">01</div>
-        <h3>Strength Zone</h3>
-        <div class="zcard-meta">Positions 1–4 · 9h00 – 11h30</div>
-        <ul class="staff-list">
-          <li class="staff-item"><span class="staff-n">Stephanie</span></li>
-          <li class="staff-item"><span class="staff-n">Antoine</span></li>
-          <li class="staff-item"><span class="staff-n">Nora</span></li>
-          <li class="staff-item"><span class="staff-n">Pauline</span></li>
-        </ul>
-        <div class="vchips">
-          <div class="vchip">9h00 – 9h30</div><div class="vchip">9h30 – 10h00</div>
-          <div class="vchip">10h00 – 10h30</div><div class="vchip">10h30 – 11h00</div>
-          <div class="vchip">11h00 – 11h30</div>
-        </div>
-      </div>
-      <div class="zcard">
-        <div class="zcard-num">02</div>
-        <h3>Endurance Zone</h3>
-        <div class="zcard-meta">Positions 5–8 · 9h40 – 12h10</div>
-        <ul class="staff-list">
-          <li class="staff-item"><span class="staff-n">Laetitia</span></li>
-          <li class="staff-item"><span class="staff-n">Peter</span></li>
-          <li class="staff-item"><span class="staff-n">Sylvie</span></li>
-          <li class="staff-item"><span class="staff-n">Laurent</span></li>
-        </ul>
-        <div class="vchips">
-          <div class="vchip">9h40 – 10h10</div><div class="vchip">10h10 – 10h40</div>
-          <div class="vchip">10h40 – 11h10</div><div class="vchip">11h10 – 11h40</div>
-          <div class="vchip">11h40 – 12h10</div>
-        </div>
-      </div>
-      <div class="zcard">
-        <div class="zcard-num">03</div>
-        <h3>Metcon Zone</h3>
-        <div class="zcard-meta">Positions 9–12 · 10h40 – 13h05</div>
-        <ul class="staff-list">
-          <li class="staff-item"><span class="staff-n">Nathalie</span></li>
-          <li class="staff-item"><span class="staff-n">Nicolas</span></li>
-          <li class="staff-item"><span class="staff-n">Valentine</span></li>
-          <li class="staff-item"><span class="staff-n">Juge</span></li>
-        </ul>
-        <div class="vchips">
-          <div class="vchip">10h40 – 11h05</div><div class="vchip">11h10 – 11h35</div>
-          <div class="vchip">11h40 – 12h05</div><div class="vchip">12h10 – 12h35</div>
-          <div class="vchip">12h40 – 13h05</div>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /bp-juges -->
-
-  <!-- ── TAB BUILD ── -->
-  <div class="b-panel" id="bp-build">
-
-    <div class="b-heading">
-      <span class="b-num">/01</span>
-      <h3 class="b-title">charges <em>par division</em></h3>
-      <div class="b-line"></div>
-    </div>
-
-    <div class="bt-scroll-outer" style="margin-bottom:56px">
-
-    <div class="bt-scroll charges">
-    <div class="bt-wrap">
-      <div class="bt-row hdr" style="grid-template-columns:120px repeat(5,1fr)">
-        <div class="bt-cell first">mouvement</div>
-        <div class="bt-cell" style="color:#d97706">ff lite</div>
-        <div class="bt-cell" style="color:#a78bfa">ff pro</div>
-        <div class="bt-cell" style="color:#60a5fa">hh lite</div>
-        <div class="bt-cell" style="color:#4ade80">hf mixte</div>
-        <div class="bt-cell" style="color:#f87171">hh pro</div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:120px repeat(5,1fr)">
-        <div class="bt-cell lbl">box jump</div>
-        <div class="bt-cell val"><span class="charge-val">20"</span></div>
-        <div class="bt-cell val"><span class="charge-val">20"</span></div>
-        <div class="bt-cell val"><span class="charge-val">20"</span></div>
-        <div class="bt-cell val"><span class="charge-val">20"</span></div>
-        <div class="bt-cell val"><span class="charge-val">24"</span></div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:120px repeat(5,1fr)">
-        <div class="bt-cell lbl">dumbell</div>
-        <div class="bt-cell val"><span class="charge-val">10 kg</span></div>
-        <div class="bt-cell val"><span class="charge-val">15 kg</span></div>
-        <div class="bt-cell val"><span class="charge-val">15 kg</span></div>
-        <div class="bt-cell val"><span class="charge-val">15 kg</span></div>
-        <div class="bt-cell val"><span class="charge-val">20 kg</span></div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:120px repeat(5,1fr)">
-        <div class="bt-cell lbl">wall ball</div>
-        <div class="bt-cell val"><span class="charge-val">4 kg</span></div>
-        <div class="bt-cell val"><span class="charge-val">6 kg</span></div>
-        <div class="bt-cell val"><span class="charge-val">6 kg</span></div>
-        <div class="bt-cell val"><span class="charge-val">6 kg</span></div>
-        <div class="bt-cell val"><span class="charge-val">9 kg</span></div>
-      </div>
-    </div>
-    </div></div>
-
-    <div class="b-heading">
-      <span class="b-num">/02</span>
-      <h3 class="b-title">placement <em>équipes</em></h3>
-      <div class="b-line"></div>
-      <span class="b-sub">workout 1</span>
-    </div>
-
-    <div class="bt-scroll-outer" style="margin-bottom:32px">
-    <div class="scroll-hint">← scroll →</div>
-    <div class="bt-scroll ">
-    <div class="bt-wrap">
-      <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell first"></div>
-        <div class="bt-cell">heat 1</div><div class="bt-cell">heat 2</div>
-        <div class="bt-cell">heat 3</div><div class="bt-cell">heat 4</div><div class="bt-cell">heat 5</div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell lbl">créneau</div>
-        <div class="bt-cell val"><span class="val-small">08:30–11:05</span></div>
-        <div class="bt-cell val"><span class="val-small">09:00–11:35</span></div>
-        <div class="bt-cell val"><span class="val-small">09:30–12:05</span></div>
-        <div class="bt-cell val"><span class="val-small">10:00–12:35</span></div>
-        <div class="bt-cell val"><span class="val-small">10:30–13:05</span></div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell lbl">divisions</div>
-        <div class="bt-cell val"><div class="pills"><span class="pill p-ffl">FF lite</span><span class="pill p-ffp">FF pro</span></div></div>
-        <div class="bt-cell val"><div class="pills"><span class="pill p-ffp">FF pro</span><span class="pill p-hhl">HH lite</span></div></div>
-        <div class="bt-cell val"><div class="pills"><span class="pill p-hf">HF mixte</span></div></div>
-        <div class="bt-cell val"><div class="pills"><span class="pill p-hf">HF mixte</span></div></div>
-        <div class="bt-cell val"><div class="pills"><span class="pill p-hf">HF mixte</span><span class="pill p-hhp">HH pro</span></div></div>
-      </div>
-    </div>
-    </div></div>
-
-    <div class="lane-sep"><div class="ln">— lane 01</div></div>
-    <div class="bt-scroll-outer">
-    <div class="scroll-hint">← scroll →</div>
-    <div class="bt-scroll ">
-    <div class="bt-wrap">
-      <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell first">div.</div>
-        <div class="bt-cell"><span class="pill p-ffl">FF lite</span></div><div class="bt-cell"><span class="pill p-ffp">FF pro</span></div>
-        <div class="bt-cell"><span class="pill p-hf">HF mixte</span></div><div class="bt-cell"><span class="pill p-hf">HF mixte</span></div><div class="bt-cell"><span class="pill p-hf">HF mixte</span></div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell lbl">équipe</div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Les chipies</div><div class="team-b">Hygie</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Les Bulletproof</div><div class="team-b">Hygie CrossFit</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Les traîtres</div><div class="team-b">Hygie</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Licornes &amp; Paillettes</div><div class="team-b">Crossfit Initium</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Elle nous a dit oui</div><div class="team-b">Crossfit Koyo</div></div>
-      </div>
-    </div>
-    </div></div>
-    <div class="lane-sep"><div class="ln">— lane 02</div></div>
-    <div class="bt-scroll-outer">
-    <div class="scroll-hint">← scroll →</div>
-    <div class="bt-scroll ">
-    <div class="bt-wrap">
-      <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell first">div.</div>
-        <div class="bt-cell"><span class="pill p-ffl">FF lite</span></div><div class="bt-cell"><span class="pill p-ffp">FF pro</span></div>
-        <div class="bt-cell"><span class="pill p-hf">HF mixte</span></div><div class="bt-cell"><span class="pill p-hf">HF mixte</span></div><div class="bt-cell"><span class="pill p-hhp">HH pro</span></div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell lbl">équipe</div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Malabar bi-goût</div><div class="team-b">Fwa crossfit</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Les 7 pack</div><div class="team-b">FWA Crossfit</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">The unbreakable</div><div class="team-b">Hygie / Heresy</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Pace and Love</div><div class="team-b">Crossfit LXII</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Boyz in the Wod</div><div class="team-b">Vauban</div></div>
-      </div>
-    </div>
-    </div></div>
-    <div class="lane-sep"><div class="ln">— lane 03</div></div>
-    <div class="bt-scroll-outer">
-    <div class="scroll-hint">← scroll →</div>
-    <div class="bt-scroll ">
-    <div class="bt-wrap">
-      <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell first">div.</div>
-        <div class="bt-cell"><span class="pill p-ffp">FF pro</span></div><div class="bt-cell"><span class="pill p-ffp">FF pro</span></div>
-        <div class="bt-cell"><span class="pill p-hf">HF mixte</span></div><div class="bt-cell"><span class="pill p-hf">HF mixte</span></div><div class="bt-cell"><span class="pill p-hhp">HH pro</span></div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell lbl">équipe</div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Diesel &amp; Gazelle</div><div class="team-b">Virtus Honor &amp; Badass</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Beauty in beast mode</div><div class="team-b">Hygie</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Au fil des wods</div><div class="team-b">Cambrai Crossfit</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Le lièvre et la tortue</div><div class="team-b">Hygie</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Les Casseurs Flotteurs</div><div class="team-b">Crossfit Bailleul</div></div>
-      </div>
-    </div>
-    </div></div>
-    <div class="lane-sep"><div class="ln">— lane 04</div></div>
-    <div class="bt-scroll-outer">
-    <div class="scroll-hint">← scroll →</div>
-    <div class="bt-scroll ">
-    <div class="bt-wrap">
-      <div class="bt-row hdr" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell first">div.</div>
-        <div class="bt-cell"><span class="pill p-ffp">FF pro</span></div><div class="bt-cell"><span class="pill p-hhl">HH lite</span></div>
-        <div class="bt-cell"><span class="pill p-hf">HF mixte</span></div><div class="bt-cell"><span class="pill p-hf">HF mixte</span></div><div class="bt-cell"><span class="pill p-hhp">HH pro</span></div>
-      </div>
-      <div class="bt-row" style="grid-template-columns:80px repeat(5,1fr)">
-        <div class="bt-cell lbl">équipe</div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Les WOODinesss</div><div class="team-b">Hygie</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Les ratés</div><div class="team-b">—</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Bike Cry Repeat</div><div class="team-b">Crossfit Vauban</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">El Mimo del Roro</div><div class="team-b">—</div></div>
-        <div class="bt-cell val" style="text-align:left"><div class="team-n">Les stagiaires</div><div class="team-b">Hygie + Badass Angres</div></div>
-      </div>
-    </div>
-    </div></div>
-
-  </div><!-- /bp-build -->
-
-</section><!-- /briefing-section -->
 
 
 <!-- FOOTER -->
@@ -1225,11 +352,11 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
   <div class="foot-meta">
     <div style="color:var(--cream-dim);margin-bottom:6px">CONTACT</div>
     <a href="mailto:crossfit.hygie@gmail.com">crossfit.hygie@gmail.com</a>
-    <a href="https://scoring.fit/3100" target="_blank" rel="noopener">scoring.fit/3100</a>
+    
   </div>
   <div class="foot-bottom">
-    <div>© 2026 · HYGIE HYBRID · ÉDITION 01</div>
-    <div>14.06.2026</div>
+    <div>© HYGIE HYBRID · ÉDITION 01</div>
+    
   </div>
 </footer>
 
@@ -1240,22 +367,6 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
   },{threshold:.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  /* ── COUNTDOWN ── */
-  (function(){
-    const target = new Date('2026-06-14T09:00:00').getTime();
-    const dEl=document.getElementById('cd-days'),hEl=document.getElementById('cd-hours'),mEl=document.getElementById('cd-mins'),sEl=document.getElementById('cd-secs');
-    const pad=n=>String(n).padStart(2,'0');
-    function tick(){
-      const diff=target-Date.now();
-      if(diff<=0){dEl.textContent=hEl.textContent=mEl.textContent=sEl.textContent='00';return}
-      dEl.textContent=pad(Math.floor(diff/(1000*60*60*24)));
-      hEl.textContent=pad(Math.floor((diff%(1000*60*60*24))/(1000*60*60)));
-      mEl.textContent=pad(Math.floor((diff%(1000*60*60))/(1000*60)));
-      sEl.textContent=pad(Math.floor((diff%(1000*60))/1000));
-    }
-    tick();setInterval(tick,1000);
-  })();
-
   /* ── BRIEFING TABS ── */
   function bTab(name, btn) {
     document.querySelectorAll('.b-tab').forEach(b=>b.classList.remove('active'));
@@ -1264,11 +375,140 @@ src="https://www.facebook.com/tr?id=24722413320789353&ev=PageView&noscript=1"
     btn.classList.add('active');
   }
 
-  /* ── META PIXEL ── */
-  document.querySelectorAll('a[href*="scoring.fit"]').forEach(link=>{
-    link.addEventListener('click',()=>{if(typeof fbq!=='undefined'){fbq('track','Lead',{content_name:'Inscription Hygie Hybrid'})}});
-  });
+
 </script>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">[ hygie<span>/</span>hybrid ]</div>
+  <div class="nav-links">
+    <a href="#concept">Le concept</a>
+    <a href="#parcours">Parcours</a>
+    <a href="#metcon">Metcon</a>
+    <a href="#cats">Catégories</a>
+  </div>
+  <a href="classement.html" class="nav-classement">Classements</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag"><span class="live">●</span> ÉDITION 01</div>
+    <h1 class="hero-title">
+      <span class="line">hygie</span>
+      <span class="line stroke">hybrid<em>.</em></span>
+    </h1>
+    <div class="hero-bottom">
+      <div class="hero-info">
+        <div class="info-block"><div class="label">Format</div><div class="value">Hybride · 2H30</div></div>
+        <div class="info-block"><div class="label">Catégories</div><div class="value">04</div></div>
+      </div>
+      <div class="hero-scroll">scroll</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>STRENGTH</span><span>ENDURANCE</span><span>METCON</span><span>HYBRID</span><span>NO LIMITS</span>
+    <span>STRENGTH</span><span>ENDURANCE</span><span>METCON</span><span>HYBRID</span><span>NO LIMITS</span>
+  </div>
+</div>
+
+<!-- CONCEPT -->
+<section class="split" id="concept">
+  <div class="split-visual"><div class="split-mark">hybrid</div></div>
+  <div class="split-content">
+    <div class="split-num reveal">/ 01 — LE CONCEPT</div>
+    <h2 class="split-title reveal">tester <em>l'athlète</em><br/>complet.</h2>
+    <p class="split-text reveal">2h30. 6 zones. Une seule philosophie : aller au bout. De la force pure à l'endurance, en passant par le metabolic conditioning et la récupération active — Hygie Hybrid est conçu pour ceux qui refusent de choisir.</p>
+    <div class="split-stats reveal">
+      <div class="stat"><div class="stat-num">06</div><div class="stat-label">Zones</div></div>
+      <div class="stat"><div class="stat-num">150'</div><div class="stat-label">Total</div></div>
+      <div class="stat"><div class="stat-num">04</div><div class="stat-label">Catégories</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARCOURS -->
+<section class="parcours" id="parcours">
+  <div class="parcours-header">
+    <div class="section-num reveal">/ 02 — LE PARCOURS</div>
+    <h2 class="section-title reveal">six zones.<br/><em>une seule</em> mission.</h2>
+    <p class="section-sub reveal">Chaque zone est une étape. Chaque étape compte. Du warm-up au metcon final — donne tout, du début à la fin.</p>
+  </div>
+  <div class="zone-band reveal"><div class="zone-band-inner"><div class="zone-num-big">01</div><div><div class="zone-mega">warm-up</div><div class="zone-meta"><span class="zone-time">0' — 30'</span><span class="zone-desc">Échauffement libre. Élastiques, rouleaux, barres, ergos.</span></div></div><div class="zone-arrow">→</div></div></div>
+  <div class="zone-band reveal"><div class="zone-band-inner"><div class="zone-num-big">02</div><div><div class="zone-mega">strength</div><div class="zone-meta"><span class="zone-time">30' — 50'</span><span class="zone-desc">10 min · 1RM Bench Press / 10 min · 3RM Back Squat.</span></div></div><div class="zone-arrow">→</div></div></div>
+  <div class="zone-band reveal"><div class="zone-band-inner"><div class="zone-num-big">03</div><div><div class="zone-mega">refuel</div><div class="zone-meta"><span class="zone-time">50' — 60'</span><span class="zone-desc">Stand hydratation Smartfuel. Préparation au bloc endurance.</span></div></div><div class="zone-arrow">→</div></div></div>
+  <div class="zone-band reveal"><div class="zone-band-inner"><div class="zone-num-big">04</div><div><div class="zone-mega">endurance</div><div class="zone-meta"><span class="zone-time">60' — 90'</span><span class="zone-desc">AMRAP 20 min · Run &amp; Bike. Switch toutes les 500 m.</span></div></div><div class="zone-arrow">→</div></div></div>
+  <div class="zone-band reveal"><div class="zone-band-inner"><div class="zone-num-big">05</div><div><div class="zone-mega">recovery</div><div class="zone-meta"><span class="zone-time">90' — 120'</span><span class="zone-desc">Récupération active. Rouleaux, étirements, mobilité.</span></div></div><div class="zone-arrow">→</div></div></div>
+  <div class="zone-band reveal"><div class="zone-band-inner"><div class="zone-num-big">06</div><div><div class="zone-mega">metcon</div><div class="zone-meta"><span class="zone-time">120' — 150'</span><span class="zone-desc">Le bouquet final. AMRAP 25 min. Tout donner, tout finir.</span></div></div><div class="zone-arrow">→</div></div></div>
+</section>
+
+<!-- METCON -->
+<section class="metcon" id="metcon">
+  <div class="metcon-inner">
+    <div class="metcon-top">
+      <div>
+        <div class="section-num reveal">/ 03 — METCON FINALE</div>
+        <h2 class="section-title reveal">le <em>boss</em><br/>fight.</h2>
+      </div>
+      <div class="metcon-cap reveal">AMRAP · 25 MIN</div>
+    </div>
+    <div class="metcon-grid">
+      <div class="metcon-row reveal"><div class="metcon-cal">60</div><div class="metcon-mvt">Cal Ski Erg</div><div class="metcon-tag">01</div></div>
+      <div class="metcon-row reveal"><div class="metcon-cal">50</div><div class="metcon-mvt">Burpees Box Jump Over</div><div class="metcon-tag">02</div></div>
+      <div class="metcon-row reveal"><div class="metcon-cal">50</div><div class="metcon-mvt">Cal Ski Erg</div><div class="metcon-tag">03</div></div>
+      <div class="metcon-row reveal"><div class="metcon-cal">50</div><div class="metcon-mvt">DB Hang Snatches Alt</div><div class="metcon-tag">04</div></div>
+      <div class="metcon-row reveal"><div class="metcon-cal">40</div><div class="metcon-mvt">Cal Ski Erg</div><div class="metcon-tag">05</div></div>
+      <div class="metcon-row reveal"><div class="metcon-cal">50</div><div class="metcon-mvt">Wall Ball Shots</div><div class="metcon-tag">06</div></div>
+      <div class="metcon-row reveal"><div class="metcon-cal">30</div><div class="metcon-mvt">Cal Ski Erg</div><div class="metcon-tag">07</div></div>
+      <div class="metcon-row reveal"><div class="metcon-cal">50</div><div class="metcon-mvt">DB Hang Clean &amp; Jerk Alt</div><div class="metcon-tag">08</div></div>
+      <div class="metcon-row reveal"><div class="metcon-cal">20</div><div class="metcon-mvt">Cal Ski Erg</div><div class="metcon-tag">09</div></div>
+      <div class="metcon-row reveal"><div class="metcon-cal">50</div><div class="metcon-mvt">Box Jump Over</div><div class="metcon-tag">10</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATS -->
+<section class="cats" id="cats">
+  <div class="cats-inner">
+    <div class="section-num reveal">/ 04 — CATÉGORIES</div>
+    <h2 class="section-title reveal">choisis ta <em>catégorie</em>.</h2>
+    <div class="cats-grid">
+      <div class="cat reveal"><div class="cat-tier">Catégorie 01</div><div class="cat-name">FF Lite</div><ul class="cat-list"><li>Box <strong>20"</strong></li><li>DB <strong>10 kg</strong></li><li>Wall Ball <strong>4 kg</strong></li><li>Mvt <strong>Step Over</strong></li></ul></div>
+      <div class="cat reveal"><div class="cat-tier">Catégorie 02</div><div class="cat-name">HF/HH Lite</div><ul class="cat-list"><li>Box <strong>20"</strong></li><li>DB <strong>15 kg</strong></li><li>Wall Ball <strong>6 kg</strong></li><li>Mvt <strong>Step Over</strong></li></ul></div>
+      <div class="cat reveal"><div class="cat-tier">Catégorie 03</div><div class="cat-name">FF Pro</div><ul class="cat-list"><li>Box <strong>20"</strong></li><li>DB <strong>15 kg</strong></li><li>Wall Ball <strong>6 kg</strong></li><li>Mvt <strong>Jump Over</strong></li></ul></div>
+      <div class="cat reveal"><div class="cat-tier">Catégorie 04</div><div class="cat-name">HH Pro</div><ul class="cat-list"><li>Box <strong>24"</strong></li><li>DB <strong>20 kg</strong></li><li>Wall Ball <strong>9 kg</strong></li><li>Mvt <strong>Jump Over</strong></li></ul></div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">[ hygie<span>/</span>hybrid ]</div>
+  <div class="foot-meta">
+    <div style="color:var(--cream-dim);margin-bottom:6px">SUIVRE</div>
+    <a href="https://www.instagram.com/hygie_hybrid/" target="_blank" rel="noopener">@hygie_hybrid</a>
+    <a href="https://www.instagram.com/hygie_hybrid/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+  <div class="foot-meta">
+    <div style="color:var(--cream-dim);margin-bottom:6px">CONTACT</div>
+    <a href="mailto:crossfit.hygie@gmail.com">crossfit.hygie@gmail.com</a>
+    
+  </div>
+  <div class="foot-bottom">
+    <div>© HYGIE HYBRID · ÉDITION 01</div>
+    
+  </div>
+</footer>
 
 </body>
 </html>
