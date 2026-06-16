@@ -226,11 +226,8 @@
     .reveal{opacity:0;transform:translateY(40px);transition:all 1s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:translateY(0)}
 </style>
-
 </head>
-
 <body>
-
 <nav class="nav">
   <div class="nav-logo">[ hygie<span>/</span>hybrid ]</div>
   <div class="nav-links">
@@ -337,178 +334,17 @@
     </div>
   </div>
 </section>
-
-
-
-
-<!-- FOOTER -->
 <footer>
   <div class="foot-logo">[ hygie<span>/</span>hybrid ]</div>
-  <div class="foot-meta">
-    <div style="color:var(--cream-dim);margin-bottom:6px">SUIVRE</div>
-    <a href="https://www.instagram.com/hygie_hybrid/" target="_blank" rel="noopener">@hygie_hybrid</a>
-    <a href="https://www.instagram.com/hygie_hybrid/" target="_blank" rel="noopener">Instagram</a>
-  </div>
-  <div class="foot-meta">
-    <div style="color:var(--cream-dim);margin-bottom:6px">CONTACT</div>
-    <a href="mailto:crossfit.hygie@gmail.com">crossfit.hygie@gmail.com</a>
-    
-  </div>
   <div class="foot-bottom">
     <div>© HYGIE HYBRID · ÉDITION 01</div>
-    
   </div>
 </footer>
-
 <script>
-  /* ── REVEAL ── */
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
   },{threshold:.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-  /* ── BRIEFING TABS ── */
-  function bTab(name, btn) {
-    document.querySelectorAll('.b-tab').forEach(b=>b.classList.remove('active'));
-    document.querySelectorAll('.b-panel').forEach(p=>p.classList.remove('active'));
-    document.getElementById('bp-'+name).classList.add('active');
-    btn.classList.add('active');
-  }
-
-
 </script>
-</head>
-
-<body>
-
-<nav class="nav">
-  <div class="nav-logo">[ hygie<span>/</span>hybrid ]</div>
-  <div class="nav-links">
-    <a href="#concept">Le concept</a>
-    <a href="#parcours">Parcours</a>
-    <a href="#metcon">Metcon</a>
-    <a href="#cats">Catégories</a>
-  </div>
-  <a href="classement.html" class="nav-classement">Classements</a>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <div class="hero-tag"><span class="live">●</span> ÉDITION 01</div>
-    <h1 class="hero-title">
-      <span class="line">hygie</span>
-      <span class="line stroke">hybrid<em>.</em></span>
-    </h1>
-    <div class="hero-bottom">
-      <div class="hero-info">
-        <div class="info-block"><div class="label">Format</div><div class="value">Hybride · 2H30</div></div>
-        <div class="info-block"><div class="label">Catégories</div><div class="value">04</div></div>
-      </div>
-      <div class="hero-scroll">scroll</div>
-    </div>
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee">
-  <div class="marquee-track">
-    <span>STRENGTH</span><span>ENDURANCE</span><span>METCON</span><span>HYBRID</span><span>NO LIMITS</span>
-    <span>STRENGTH</span><span>ENDURANCE</span><span>METCON</span><span>HYBRID</span><span>NO LIMITS</span>
-  </div>
-</div>
-
-<!-- CONCEPT -->
-<section class="split" id="concept">
-  <div class="split-visual"><div class="split-mark">hybrid</div></div>
-  <div class="split-content">
-    <div class="split-num reveal">/ 01 — LE CONCEPT</div>
-    <h2 class="split-title reveal">tester <em>l'athlète</em><br/>complet.</h2>
-    <p class="split-text reveal">2h30. 6 zones. Une seule philosophie : aller au bout. De la force pure à l'endurance, en passant par le metabolic conditioning et la récupération active — Hygie Hybrid est conçu pour ceux qui refusent de choisir.</p>
-    <div class="split-stats reveal">
-      <div class="stat"><div class="stat-num">06</div><div class="stat-label">Zones</div></div>
-      <div class="stat"><div class="stat-num">150'</div><div class="stat-label">Total</div></div>
-      <div class="stat"><div class="stat-num">04</div><div class="stat-label">Catégories</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- PARCOURS -->
-<section class="parcours" id="parcours">
-  <div class="parcours-header">
-    <div class="section-num reveal">/ 02 — LE PARCOURS</div>
-    <h2 class="section-title reveal">six zones.<br/><em>une seule</em> mission.</h2>
-    <p class="section-sub reveal">Chaque zone est une étape. Chaque étape compte. Du warm-up au metcon final — donne tout, du début à la fin.</p>
-  </div>
-  <div class="zone-band reveal"><div class="zone-band-inner"><div class="zone-num-big">01</div><div><div class="zone-mega">warm-up</div><div class="zone-meta"><span class="zone-time">0' — 30'</span><span class="zone-desc">Échauffement libre. Élastiques, rouleaux, barres, ergos.</span></div></div><div class="zone-arrow">→</div></div></div>
-  <div class="zone-band reveal"><div class="zone-band-inner"><div class="zone-num-big">02</div><div><div class="zone-mega">strength</div><div class="zone-meta"><span class="zone-time">30' — 50'</span><span class="zone-desc">10 min · 1RM Bench Press / 10 min · 3RM Back Squat.</span></div></div><div class="zone-arrow">→</div></div></div>
-  <div class="zone-band reveal"><div class="zone-band-inner"><div class="zone-num-big">03</div><div><div class="zone-mega">refuel</div><div class="zone-meta"><span class="zone-time">50' — 60'</span><span class="zone-desc">Stand hydratation Smartfuel. Préparation au bloc endurance.</span></div></div><div class="zone-arrow">→</div></div></div>
-  <div class="zone-band reveal"><div class="zone-band-inner"><div class="zone-num-big">04</div><div><div class="zone-mega">endurance</div><div class="zone-meta"><span class="zone-time">60' — 90'</span><span class="zone-desc">AMRAP 20 min · Run &amp; Bike. Switch toutes les 500 m.</span></div></div><div class="zone-arrow">→</div></div></div>
-  <div class="zone-band reveal"><div class="zone-band-inner"><div class="zone-num-big">05</div><div><div class="zone-mega">recovery</div><div class="zone-meta"><span class="zone-time">90' — 120'</span><span class="zone-desc">Récupération active. Rouleaux, étirements, mobilité.</span></div></div><div class="zone-arrow">→</div></div></div>
-  <div class="zone-band reveal"><div class="zone-band-inner"><div class="zone-num-big">06</div><div><div class="zone-mega">metcon</div><div class="zone-meta"><span class="zone-time">120' — 150'</span><span class="zone-desc">Le bouquet final. AMRAP 25 min. Tout donner, tout finir.</span></div></div><div class="zone-arrow">→</div></div></div>
-</section>
-
-<!-- METCON -->
-<section class="metcon" id="metcon">
-  <div class="metcon-inner">
-    <div class="metcon-top">
-      <div>
-        <div class="section-num reveal">/ 03 — METCON FINALE</div>
-        <h2 class="section-title reveal">le <em>boss</em><br/>fight.</h2>
-      </div>
-      <div class="metcon-cap reveal">AMRAP · 25 MIN</div>
-    </div>
-    <div class="metcon-grid">
-      <div class="metcon-row reveal"><div class="metcon-cal">60</div><div class="metcon-mvt">Cal Ski Erg</div><div class="metcon-tag">01</div></div>
-      <div class="metcon-row reveal"><div class="metcon-cal">50</div><div class="metcon-mvt">Burpees Box Jump Over</div><div class="metcon-tag">02</div></div>
-      <div class="metcon-row reveal"><div class="metcon-cal">50</div><div class="metcon-mvt">Cal Ski Erg</div><div class="metcon-tag">03</div></div>
-      <div class="metcon-row reveal"><div class="metcon-cal">50</div><div class="metcon-mvt">DB Hang Snatches Alt</div><div class="metcon-tag">04</div></div>
-      <div class="metcon-row reveal"><div class="metcon-cal">40</div><div class="metcon-mvt">Cal Ski Erg</div><div class="metcon-tag">05</div></div>
-      <div class="metcon-row reveal"><div class="metcon-cal">50</div><div class="metcon-mvt">Wall Ball Shots</div><div class="metcon-tag">06</div></div>
-      <div class="metcon-row reveal"><div class="metcon-cal">30</div><div class="metcon-mvt">Cal Ski Erg</div><div class="metcon-tag">07</div></div>
-      <div class="metcon-row reveal"><div class="metcon-cal">50</div><div class="metcon-mvt">DB Hang Clean &amp; Jerk Alt</div><div class="metcon-tag">08</div></div>
-      <div class="metcon-row reveal"><div class="metcon-cal">20</div><div class="metcon-mvt">Cal Ski Erg</div><div class="metcon-tag">09</div></div>
-      <div class="metcon-row reveal"><div class="metcon-cal">50</div><div class="metcon-mvt">Box Jump Over</div><div class="metcon-tag">10</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- CATS -->
-<section class="cats" id="cats">
-  <div class="cats-inner">
-    <div class="section-num reveal">/ 04 — CATÉGORIES</div>
-    <h2 class="section-title reveal">choisis ta <em>catégorie</em>.</h2>
-    <div class="cats-grid">
-      <div class="cat reveal"><div class="cat-tier">Catégorie 01</div><div class="cat-name">FF Lite</div><ul class="cat-list"><li>Box <strong>20"</strong></li><li>DB <strong>10 kg</strong></li><li>Wall Ball <strong>4 kg</strong></li><li>Mvt <strong>Step Over</strong></li></ul></div>
-      <div class="cat reveal"><div class="cat-tier">Catégorie 02</div><div class="cat-name">HF/HH Lite</div><ul class="cat-list"><li>Box <strong>20"</strong></li><li>DB <strong>15 kg</strong></li><li>Wall Ball <strong>6 kg</strong></li><li>Mvt <strong>Step Over</strong></li></ul></div>
-      <div class="cat reveal"><div class="cat-tier">Catégorie 03</div><div class="cat-name">FF Pro</div><ul class="cat-list"><li>Box <strong>20"</strong></li><li>DB <strong>15 kg</strong></li><li>Wall Ball <strong>6 kg</strong></li><li>Mvt <strong>Jump Over</strong></li></ul></div>
-      <div class="cat reveal"><div class="cat-tier">Catégorie 04</div><div class="cat-name">HH Pro</div><ul class="cat-list"><li>Box <strong>24"</strong></li><li>DB <strong>20 kg</strong></li><li>Wall Ball <strong>9 kg</strong></li><li>Mvt <strong>Jump Over</strong></li></ul></div>
-    </div>
-  </div>
-</section>
-
-
-
-
-<!-- FOOTER -->
-<footer>
-  <div class="foot-logo">[ hygie<span>/</span>hybrid ]</div>
-  <div class="foot-meta">
-    <div style="color:var(--cream-dim);margin-bottom:6px">SUIVRE</div>
-    <a href="https://www.instagram.com/hygie_hybrid/" target="_blank" rel="noopener">@hygie_hybrid</a>
-    <a href="https://www.instagram.com/hygie_hybrid/" target="_blank" rel="noopener">Instagram</a>
-  </div>
-  <div class="foot-meta">
-    <div style="color:var(--cream-dim);margin-bottom:6px">CONTACT</div>
-    <a href="mailto:crossfit.hygie@gmail.com">crossfit.hygie@gmail.com</a>
-    
-  </div>
-  <div class="foot-bottom">
-    <div>© HYGIE HYBRID · ÉDITION 01</div>
-    
-  </div>
-</footer>
-
 </body>
 </html>

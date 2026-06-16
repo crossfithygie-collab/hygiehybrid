@@ -211,6 +211,65 @@ body::before{
   .main{padding:32px 16px 80px}
   .cat-title{font-size:clamp(24px,7vw,40px)}
 }
+
+  /* ── MOBILE ── */
+  @media(max-width:680px){
+    .nav{padding:12px 16px}
+    .nav-back{font-size:9px}
+    .hero{padding:60px 16px 32px}
+    .hero-title{font-size:clamp(40px,12vw,80px)}
+    .hero-meta{gap:16px}
+    .hero-meta-item{font-size:9px}
+    .filter-bar{padding:0 12px;top:48px}
+    .f-btn{padding:12px 12px;font-size:9px}
+    .main{padding:28px 12px 60px}
+    .cat-title{font-size:clamp(22px,7vw,40px)}
+    .cat-heading{gap:10px;flex-wrap:wrap}
+    .cat-sep{display:none}
+    .scores-table{min-width:480px}
+    .scores-table th,.scores-table td{padding:10px 10px;font-size:11px}
+    .rank-cell{width:36px}
+    .total-val{font-size:16px}
+    .bar-wrap{display:none}
+    footer{padding:40px 16px 24px;grid-template-columns:1fr}
+    .foot-logo{font-size:32px}
+    .foot-bottom{font-size:9px}
+  }
+
+
+  /* FOOTER */
+  footer{padding:48px 28px 28px;display:grid;grid-template-columns:2fr 1fr;gap:32px;border-top:1px solid var(--line);background:var(--bg2)}
+  .foot-logo{font-family:'Anton',sans-serif;font-size:40px;text-transform:lowercase;letter-spacing:-.02em;grid-column:1/-1}
+  .foot-logo span{color:var(--cream-dim)}
+  .foot-meta{display:flex;flex-direction:column;gap:10px;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+  .foot-meta a{color:var(--cream);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .3s}
+  .foot-meta a:hover{border-color:var(--accent)}
+  .foot-bottom{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)}
+
+  /* MOBILE */
+  @media(max-width:680px){
+    .nav{padding:12px 16px}
+    .nav-back{font-size:9px}
+    .hero{padding:60px 16px 32px}
+    .hero-title{font-size:clamp(40px,12vw,80px)}
+    .hero-meta{gap:16px;flex-wrap:wrap}
+    .hero-meta-item{font-size:9px}
+    .filter-bar{padding:0 12px;top:48px}
+    .f-btn{padding:12px 10px;font-size:9px}
+    .main{padding:24px 12px 60px}
+    .cat-title{font-size:clamp(22px,7vw,40px)}
+    .cat-heading{gap:10px;flex-wrap:wrap}
+    .cat-sep{display:none}
+    .scores-table{min-width:460px}
+    .scores-table th,.scores-table td{padding:9px 9px;font-size:11px}
+    .rank-cell{width:32px}
+    .total-val{font-size:15px}
+    .bar-wrap{display:none}
+    footer{padding:32px 16px 20px;grid-template-columns:1fr}
+    .foot-logo{font-size:28px}
+    .foot-bottom{font-size:9px}
+  }
+
 </style>
 </head>
 <body>
@@ -223,22 +282,15 @@ body::before{
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">/ classements · édition 01 · 14.06.2026</div>
+    <div class="hero-eyebrow">/ classements · édition 01</div>
     <h1 class="hero-title">résultats<br><em>édition 01.</em></h1>
-    <div class="hero-meta">
-      <div class="hero-meta-item">Zone 1<strong>Strength · kg</strong></div>
-      <div class="hero-meta-item">Zone 2<strong>Endurance · m</strong></div>
-      <div class="hero-meta-item">Zone 3<strong>Metcon · reps</strong></div>
-      <div class="hero-meta-item">Équipes<strong>20 teams</strong></div>
-      <div class="hero-meta-item">Divisions<strong>5 catégories</strong></div>
-    </div>
   </div>
 </div>
 
 <div class="marquee">
   <div class="marquee-track">
-    <span>FF LITE</span><span>FF PRO</span><span>HF MIXTE</span><span>HH LITE</span><span>HH PRO</span><span>ÉDITION 01</span><span>14.06.2026</span><span>HYGIE HYBRID</span>
-    <span>FF LITE</span><span>FF PRO</span><span>HF MIXTE</span><span>HH LITE</span><span>HH PRO</span><span>ÉDITION 01</span><span>14.06.2026</span><span>HYGIE HYBRID</span>
+    <span>FF LITE</span><span>FF PRO</span><span>HF MIXTE</span><span>HH LITE</span><span>HH PRO</span><span>ÉDITION 01</span><span>HYGIE HYBRID</span>
+    <span>FF LITE</span><span>FF PRO</span><span>HF MIXTE</span><span>HH LITE</span><span>HH PRO</span><span>ÉDITION 01</span><span>HYGIE HYBRID</span>
   </div>
 </div>
 
@@ -483,5 +535,12 @@ function showCat(cat, btn){
   btn.classList.add('active');
 }
 </script>
+
+<footer>
+  <div class="foot-logo">[ hygie<span>/</span>hybrid ]</div>
+  <div class="foot-bottom">
+    <div>© HYGIE HYBRID · ÉDITION 01</div>
+  </div>
+</footer>
 </body>
 </html>
